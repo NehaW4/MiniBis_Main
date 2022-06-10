@@ -19,6 +19,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MiniBis">
         <activity
+            android:name=".termandpolicy"
+            android:exported="false" />
+        <activity
+            android:name=".aboutus"
+            android:exported="false" />
+        <activity
             android:name=".contactus"
             android:exported="false" />
         <activity
