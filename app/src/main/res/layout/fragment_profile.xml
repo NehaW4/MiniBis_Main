@@ -106,7 +106,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/background_btn"
-                android:text="Add Account"
+                android:text="Login / Register"
                 android:textColor="#800E0000"
                 android:textSize="15sp" />
 

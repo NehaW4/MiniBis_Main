@@ -28,6 +28,7 @@ public class log_sign_options extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i1 = new Intent(getApplicationContext(),signin_cust2.class);
                 startActivity(i1);
+                finish();
             }
         });
         btnseller.setOnClickListener(new View.OnClickListener() {
@@ -35,14 +36,9 @@ public class log_sign_options extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i2 = new Intent(getApplicationContext(),signin_sell1.class);
                 startActivity(i2);
+                finish();
             }
         });
-    }
-    public void navigate1(){
-
-    }
-    public void navigate2(){
-
     }
 
 }
