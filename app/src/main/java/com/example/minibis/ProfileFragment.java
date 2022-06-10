@@ -10,12 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 public class ProfileFragment extends Fragment {
 
     Button log_profile;
-
+TextView editprofile,wishlist,ordelist,cart,faq,aboutus,contactus;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

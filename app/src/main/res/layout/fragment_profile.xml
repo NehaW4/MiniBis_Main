@@ -137,6 +137,7 @@
                         android:src="@drawable/ic_editprofile" />
 
                     <TextView
+                        android:id="@+id/editprof"
                         android:layout_width="136dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
@@ -174,6 +175,7 @@
                         android:src="@drawable/ic_baseline_shopping_cart_24" />
 
                     <TextView
+                        android:id="@+id/cart"
                         android:layout_width="136dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
@@ -210,12 +212,13 @@
                         android:src="@drawable/ic_wishlist"/>
 
                     <TextView
+                        android:id="@+id/wishlist"
                         android:layout_width="136dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:gravity="center"
                         android:text="Wishlist"
-                        android:textSize="20sp"/>
+                        android:textSize="20sp" />
 
                 </LinearLayout>
 
@@ -245,12 +248,13 @@
                         android:src="@drawable/ic_orderlist"/>
 
                     <TextView
+                        android:id="@+id/orderlist"
                         android:layout_width="136dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:gravity="center"
                         android:text="Orderlist"
-                        android:textSize="20sp"/>
+                        android:textSize="20sp" />
 
                 </LinearLayout>
 
@@ -280,12 +284,13 @@
                         android:src="@drawable/ic_faq"/>
 
                     <TextView
+                        android:id="@+id/faqs"
                         android:layout_width="136dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:gravity="center"
                         android:text="FAQs"
-                        android:textSize="20sp"/>
+                        android:textSize="20sp" />
 
                 </LinearLayout>
 
@@ -322,7 +327,7 @@
                         android:layout_height="50dp"
                         android:layout_marginLeft="10dp"
                         android:gravity="center"
-                        android:text="Terms of use"
+                        android:text="Terms Policies"
                         android:textSize="20sp"/>
 
                     <TextView
@@ -330,16 +335,17 @@
                         android:layout_height="50dp"
                         android:layout_marginLeft="10dp"
                         android:gravity="center"
-                        android:text="Policies"
+                        android:text=""
                         android:textSize="20sp" />
 
                     <TextView
+                        android:id="@+id/contactus"
                         android:layout_width="136dp"
                         android:layout_height="50dp"
                         android:layout_marginLeft="10dp"
                         android:gravity="center"
                         android:text="Contact us"
-                        android:textSize="20sp"/>
+                        android:textSize="20sp" />
 
                     <TextView
                         android:layout_width="136dp"
@@ -380,14 +386,15 @@
 
 
                     <TextView
+                        android:id="@+id/logoutbtn"
                         android:layout_width="136dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:gravity="center"
                         android:text="LOG OUT"
-                        android:textStyle="bold"
                         android:textColor="#136dec"
-                        android:textSize="20sp"/>
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
