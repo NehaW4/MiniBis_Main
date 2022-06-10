@@ -12,7 +12,7 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import java.util.Objects;
 
-class ViewPagerAdapter extends PagerAdapter {
+class  ViewPagerAdapter extends PagerAdapter {
 
     // Context object
     Context context;

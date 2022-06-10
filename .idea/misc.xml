@@ -12,13 +12,13 @@
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_seller_navigation.xml" value="0.1" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_sign_in.xml" value="0.1" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
-        <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_signin_cust2.xml" value="0.1" />
-        <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_signin_sell1.xml" value="0.15" />
+        <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_signin_cust2.xml" value="0.15" />
+        <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_signin_sell1.xml" value="0.18" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_signin_sell2.xml" value="0.18" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_welcome.xml" value="0.1" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/custom_single_image.xml" value="0.1" />
-        <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/fragment_profile.xml" value="0.18" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/sidemenu_header.xml" value="0.1" />
       </map>
     </option>
@@ -28,5 +28,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.18" />
+      </ProjectState>
+    </option>
   </component>
 </project>
