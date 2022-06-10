@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "219307721811",
+    "project_id": "minibis-13932",
+    "storage_bucket": "minibis-13932.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219307721811:android:be0bfc0f8924f09d06b2a6",
+        "android_client_info": {
+          "package_name": "com.example.login_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "219307721811-gpip061r9ttbbi8tdge2brove5u28v19.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoe3Q_afZGJ5hvoCl56AyTfJkFeZ4DBv0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "219307721811-gpip061r9ttbbi8tdge2brove5u28v19.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219307721811:android:2586c21e1301272b06b2a6",
+        "android_client_info": {
+          "package_name": "com.example.minibis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "219307721811-gpip061r9ttbbi8tdge2brove5u28v19.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoe3Q_afZGJ5hvoCl56AyTfJkFeZ4DBv0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "219307721811-gpip061r9ttbbi8tdge2brove5u28v19.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
