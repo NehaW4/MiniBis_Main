@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_access_sub.xml" value="0.25" />
+        <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_contactus.xml" value="0.1" />
+        <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_edit_profile_page.xml" value="0.22" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_login_in_acitvity.xml" value="0.1" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_login_in_seller.xml" value="0.1" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_main.xml" value="0.18" />
@@ -11,11 +13,12 @@
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_sign_in.xml" value="0.1" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_signin_cust2.xml" value="0.1" />
-        <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_signin_sell1.xml" value="0.1" />
-        <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_signin_sell2.xml" value="0.1" />
+        <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_signin_sell1.xml" value="0.15" />
+        <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_signin_sell2.xml" value="0.18" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_welcome.xml" value="0.1" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/custom_single_image.xml" value="0.1" />
+        <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/sidemenu_header.xml" value="0.1" />
       </map>
     </option>
