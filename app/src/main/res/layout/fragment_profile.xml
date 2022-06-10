@@ -36,8 +36,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="85dp">
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="-80dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -111,9 +111,9 @@
                 android:textSize="15sp" />
 
 
-
-
             <LinearLayout
+                android:id="@+id/edditnamelay"
+                android:visibility="invisible"
                 android:layout_width="332dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
@@ -152,6 +152,8 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/cartlay"
+                android:visibility="invisible"
                 android:layout_width="332dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
@@ -190,6 +192,8 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/wishlistlay"
+                android:visibility="invisible"
                 android:layout_width="332dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
@@ -209,7 +213,7 @@
                     <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
-                        android:src="@drawable/ic_wishlist"/>
+                        android:src="@drawable/ic_wishlist" />
 
                     <TextView
                         android:id="@+id/wishlist"
@@ -226,13 +230,17 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/orderlistlay"
+                android:visibility="invisible"
                 android:layout_width="332dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical"
                 tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="220dp">
+                tools:layout_editor_absoluteY="220dp"
+
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -240,12 +248,14 @@
                     android:background="@drawable/background_btn"
                     android:gravity="center"
                     android:paddingLeft="25dp"
-                    android:paddingRight="25dp">
+                    android:paddingRight="25dp"
+
+                    >
 
                     <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
-                        android:src="@drawable/ic_orderlist"/>
+                        android:src="@drawable/ic_orderlist" />
 
                     <TextView
                         android:id="@+id/orderlist"
@@ -254,7 +264,8 @@
                         android:layout_marginLeft="10dp"
                         android:gravity="center"
                         android:text="Orderlist"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        />
 
                 </LinearLayout>
 
@@ -281,7 +292,7 @@
                     <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
-                        android:src="@drawable/ic_faq"/>
+                        android:src="@drawable/ic_faq" />
 
                     <TextView
                         android:id="@+id/faqs"
@@ -300,9 +311,9 @@
             <View
                 android:layout_width="320dp"
                 android:layout_height="2dp"
-                android:background="#19000000"
                 android:layout_gravity="center"
-                android:layout_marginTop="18dp"/>
+                android:layout_marginTop="18dp"
+                android:background="#19000000" />
 
             <LinearLayout
                 android:layout_width="332dp"
@@ -323,20 +334,14 @@
                     android:paddingRight="25dp">
 
                     <TextView
+                        android:id="@+id/tremanddpol"
                         android:layout_width="136dp"
                         android:layout_height="50dp"
                         android:layout_marginLeft="10dp"
                         android:gravity="center"
                         android:text="Terms Policies"
-                        android:textSize="20sp"/>
-
-                    <TextView
-                        android:layout_width="142dp"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center"
-                        android:text=""
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        />
 
                     <TextView
                         android:id="@+id/contactus"
@@ -348,12 +353,13 @@
                         android:textSize="20sp" />
 
                     <TextView
+                        android:id="@+id/aboutus"
                         android:layout_width="136dp"
                         android:layout_height="50dp"
                         android:layout_marginLeft="10dp"
                         android:gravity="center"
                         android:text="About us"
-                        android:textSize="20sp"/>
+                        android:textSize="20sp" />
 
                 </LinearLayout>
 
@@ -363,9 +369,9 @@
             <View
                 android:layout_width="320dp"
                 android:layout_height="2dp"
-                android:background="#19000000"
                 android:layout_gravity="center"
-                android:layout_marginTop="18dp"/>
+                android:layout_marginTop="18dp"
+                android:background="#19000000" />
 
             <LinearLayout
                 android:layout_width="332dp"
@@ -405,47 +411,49 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="MiniBis"
-                android:layout_marginTop="50dp"
-                android:textAlignment="center"
                 android:layout_gravity="center"
-                android:textSize="17dp"/>
+                android:layout_marginTop="50dp"
+                android:text="MiniBis"
+                android:textAlignment="center"
+                android:textSize="17dp" />
 
             <TextView
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:text="Online platform for India's small business owners"
-                android:textAlignment="center"
+                android:layout_gravity="center"
                 android:layout_marginTop="7dp"
                 android:layout_marginBottom="30dp"
-                android:layout_gravity="center"
-                android:textSize="13dp"/>
+                android:text="Online platform for India's small business owners"
+                android:textAlignment="center"
+                android:textSize="13dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
                 android:layout_gravity="center"
-                android:textSize="17dp"/>
+                android:textAlignment="center"
+                android:textSize="17dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
                 android:layout_gravity="center"
-                android:textSize="17dp"/>
+                android:textAlignment="center"
+                android:textSize="17dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
                 android:layout_gravity="center"
-                android:textSize="17dp"/>
+                android:textAlignment="center"
+                android:textSize="17dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
                 android:layout_gravity="center"
-                android:textSize="17dp"/>
+                android:textAlignment="center"
+                android:textSize="17dp" />
 
         </LinearLayout>
 
