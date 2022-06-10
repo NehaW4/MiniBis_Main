@@ -80,10 +80,10 @@
                     app:strokeWidth="2dp" />
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/headlineOfProfileFragment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="The UpBeat Store"
+                    android:text="Welcome to MiniBiz"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="23sp"
@@ -113,12 +113,12 @@
 
             <LinearLayout
                 android:id="@+id/edditnamelay"
-                android:visibility="invisible"
                 android:layout_width="332dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical"
+                android:visibility="visible"
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="220dp">
 
@@ -153,12 +153,12 @@
 
             <LinearLayout
                 android:id="@+id/cartlay"
-                android:visibility="invisible"
                 android:layout_width="332dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical"
+                android:visibility="visible"
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="220dp">
 
@@ -193,12 +193,12 @@
 
             <LinearLayout
                 android:id="@+id/wishlistlay"
-                android:visibility="invisible"
                 android:layout_width="332dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical"
+                android:visibility="visible"
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="220dp">
 
@@ -231,12 +231,12 @@
 
             <LinearLayout
                 android:id="@+id/orderlistlay"
-                android:visibility="invisible"
                 android:layout_width="332dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical"
+                android:visibility="visible"
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="220dp"
 
@@ -264,8 +264,7 @@
                         android:layout_marginLeft="10dp"
                         android:gravity="center"
                         android:text="Orderlist"
-                        android:textSize="20sp"
-                        />
+                        android:textSize="20sp" />
 
                 </LinearLayout>
 
@@ -304,6 +303,31 @@
                         android:textSize="20sp" />
 
                 </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/logoutContainer"
+                android:layout_width="332dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="220dp">
+
+                <Button
+                    android:id="@+id/logoutbtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="LogOut"
+                    android:textColor="#136dec"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="10dp" />
 
 
             </LinearLayout>
@@ -372,40 +396,6 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="18dp"
                 android:background="#19000000" />
-
-            <LinearLayout
-                android:layout_width="332dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:orientation="vertical"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="220dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:background="@drawable/logout_btn"
-                    android:gravity="center"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp">
-
-
-                    <TextView
-                        android:id="@+id/logoutbtn"
-                        android:layout_width="136dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center"
-                        android:text="LOG OUT"
-                        android:textColor="#136dec"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-
-            </LinearLayout>
 
 
             <TextView

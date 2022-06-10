@@ -34,15 +34,6 @@
             android:name=".ForgotPasswordActivity"
             android:exported="true" />
         <activity
-            android:name=".SignInActivity"
-            android:exported="true" />
-        <activity
-            android:name=".SignUpActivity"
-            android:exported="true" />
-        <activity
-            android:name=".WelcomeActivity"
-            android:exported="true" />
-        <activity
             android:name=".seller_navigation"
             android:exported="true" />
         <activity
@@ -58,7 +49,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Login_in_acitvity"
+            android:name=".Login_in_activity"
             android:exported="true" />
         <activity
             android:name=".access_sub"
@@ -82,7 +73,7 @@
             android:name=".MainActivity"
             android:exported="true" />
         <activity
-            android:name=".signin_cust2"
+            android:name=".signupcustomer"
             android:exported="true" />
         <activity
             android:name=".signin_sell1"

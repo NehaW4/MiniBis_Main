@@ -16,15 +16,15 @@ public class login_in_seller extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_in_acitvity);
+        setContentView(R.layout.activity_login_in_activity);
 
-        log = findViewById(R.id.loginfinal);
+        log = findViewById(R.id.loginButtonFromLoginPage);
 
         log.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                //Intent intent7 = new Intent(Login_in_acitvity.this,Bottom_Navigation.class);
+                //Intent intent7 = new Intent(Login_in_activity.this,Bottom_Navigation.class);
                 Intent intent8 = new Intent(login_in_seller.this,seller_navigation.class);
                 //Intent intent7 = new Intent(getApplicationContext(),activity_edit_profile_page.class);
                 startActivity(intent8);
@@ -42,7 +42,7 @@ public class login_in_seller extends AppCompatActivity {
             public  void  onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth){
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if(user!=null){
-                    Intent intent = new Intent(Login_in_acitvity.this,log_sign_options.class);
+                    Intent intent = new Intent(Login_in_activity.this,log_sign_options.class);
                     startActivity(intent);
                     finish();
                 }

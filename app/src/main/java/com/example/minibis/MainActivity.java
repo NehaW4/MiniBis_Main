@@ -95,6 +95,12 @@ public class    MainActivity extends AppCompatActivity {
         return super.onMenuOpened(featureId, menu);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        finishAffinity();
+    }
+
    /* public boolean onCreateOptionMenu(Menu menu){
         getMenuInflater().inflate(R.menu.homemenu, menu);
         return true;

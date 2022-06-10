@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,9 +19,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfileFragment extends Fragment {
 
-    Button log_profile;
+    Button log_profile,logout;
     LinearLayout editprofalay,cartlay,wishlitlay,orderlistlay;
-TextView editprofile,wishlist,ordelist,cart,faq,aboutus,contactus,termsandcond;
+TextView editprofile,wishlist,ordelist,cart,faq,aboutus,contactus,termsandcond,headline;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -39,15 +40,22 @@ TextView editprofile,wishlist,ordelist,cart,faq,aboutus,contactus,termsandcond;
         cartlay=(LinearLayout) view.findViewById(R.id.cartlay);
         wishlitlay=(LinearLayout) view.findViewById(R.id.wishlistlay);
         orderlistlay=(LinearLayout) view.findViewById(R.id.orderlistlay);
+        logout=(Button) view.findViewById(R.id.logoutbtn);
+        headline=(TextView) view.findViewById(R.id.headlineOfProfileFragment);
 
-        if(FirebaseAuth.getInstance()==null)
+        if(FirebaseAuth.getInstance().getCurrentUser()==null)
             {
-                editprofalay.setVisibility(View.VISIBLE);
-                wishlitlay.setVisibility(View.VISIBLE);
-                orderlistlay.setVisibility(View.VISIBLE);
-                cartlay.setVisibility(View.VISIBLE);
-
+                editprofalay.setVisibility(View.GONE);
+                wishlitlay.setVisibility(View.GONE);
+                orderlistlay.setVisibility(View.GONE);
+                cartlay.setVisibility(View.GONE);
+                ((LinearLayout) view.findViewById(R.id.logoutContainer)).setVisibility(View.GONE);
+                headline.setText("Welcome to MiniBis");
             }
+        else{
+                headline.setText("Welcome, "+FirebaseAuth.getInstance().getCurrentUser().getEmail());
+            log_profile.setVisibility(View.GONE);
+        }
         log_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -112,6 +120,28 @@ TextView editprofile,wishlist,ordelist,cart,faq,aboutus,contactus,termsandcond;
 
             }
         });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                new Handler().post(new Runnable() {
+
+                    @Override
+                    public void run()
+                    {
+                        Intent intent = getActivity().getIntent();
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK
+                                | Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        getActivity().overridePendingTransition(0, 0);
+                        getActivity().finish();
+
+                        getActivity().overridePendingTransition(0, 0);
+                        startActivity(intent);
+                    }
+                });
+            }
+        });
+
         return view;
     }
 }

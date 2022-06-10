@@ -9,7 +9,7 @@
 
 
     <EditText
-        android:id="@+id/log_id"
+        android:id="@+id/login_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -39,7 +39,7 @@
         app:layout_constraintVertical_bias="0.795" />
 
     <Button
-        android:id="@+id/loginfinal"
+        android:id="@+id/loginButtonFromLoginPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="LOG IN"

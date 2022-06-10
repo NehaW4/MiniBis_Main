@@ -35,7 +35,7 @@ public class signin_sell1 extends AppCompatActivity {
         bmob = findViewById(R.id.bmobile);
         bemail = findViewById(R.id.bemailid);
         baddress = findViewById(R.id.baddress);
-        btnnext = findViewById(R.id.next);
+        btnnext = findViewById(R.id.nextButton);
 
         btnnext.setOnClickListener(new View.OnClickListener() {
             @Override
