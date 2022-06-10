@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Circular">
+        <item name="cornerSize">53%</item>
+    </style>
+
+    <style name="RoundSquare">
+        <item name="cornerSizeBottomRight">20%</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+
+        <item name="cornerSizeBottomLeft">20%</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+    </style>
+
+    <style name="RoundSquare2">
+        <item name="cornerSizeBottomRight">40%</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+
+        <item name="cornerSizeBottomLeft">40%</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+    </style>
+
+    <style name="MaterialDivider">
+        <item name="android:color">#000000</item>
+        <item name="android:layout_height">3dp</item>
+
+    </style>
+
+</resources>

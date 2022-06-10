@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/login_icon"
+        android:icon="@drawable/ic_baseline_login_24"
+        android:title="Login"
+        android:visible="true"
+        app:showAsAction="ifRoom" />
+    <item
+
+        android:id="@+id/search"
+        android:icon="@drawable/ic_search"
+        android:title="Search"
+        android:visible="true"
+        app:showAsAction="always" />
+
+
+    <item
+        android:id="@+id/wishlist"
+        android:icon="@drawable/ic_wishlist"
+        android:title="Wishlist"
+        android:visible="true"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/cart"
+        android:icon="@drawable/ic_baseline_shopping_cart_24"
+        android:title="Add to cart"
+        android:visible="true"
+        app:showAsAction="always" />
+
+
+
+</menu>

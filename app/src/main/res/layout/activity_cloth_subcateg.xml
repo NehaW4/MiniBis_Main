@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clothing"
+            android:textSize="30sp"
+            android:fontFamily="@font/brandon_grotesque_black"
+            android:padding="10dp"
+            android:textAllCaps="true"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@drawable/ssubcat_bg"
+            android:layout_margin="30dp"
+            android:scaleX="1.2">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/baloo"
+                android:padding="25dp"
+                android:text="Western Wear"
+                android:scaleX="0.7"
+                android:scaleY="0.8"
+                android:textSize="30sp"
+                android:layout_marginLeft="-33dp"/>
+
+            <Button
+                android:id="@+id/view_western"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="#00000000"
+                android:padding="20dp"
+                android:text="View all"
+                android:textColor="@color/black"/>
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/western_icon"
+                android:scaleX="0.7"
+                android:layout_alignParentRight="true"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="378dp"
+            android:layout_height="155dp"
+            android:layout_margin="26dp"
+            android:background="@drawable/ssubcat_bg"
+            android:scaleX="10">
+
+        </RelativeLayout>
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="-145dp"
+            android:scaleX="1.4"
+            android:scaleY="1.7"
+            android:src="@drawable/eethinic_icon"
+            android:layout_marginLeft="255dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo"
+            android:padding="25dp"
+            android:text="Ethnic Wear"
+            android:textSize="30sp"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:layout_marginLeft="-12dp"
+            android:layout_marginTop="-116dp"/>
+
+        <Button
+            android:id="@+id/view_ethnic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VIEW ALL"
+            android:background="#00000000"
+            android:textColor="@color/black"
+            android:padding="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="-7dp"/>
+
+
+
+
+
+
+    </LinearLayout>
+</ScrollView>

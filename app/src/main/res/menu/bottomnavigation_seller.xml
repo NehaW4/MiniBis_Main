@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/seller_home"
+        android:title="Home"
+        android:icon="@drawable/ic_home"
+        app:showAsAction="always"
+        />
+
+    <item
+        android:id="@+id/addproduct"
+        android:title="Add Product"
+        android:icon="@drawable/ic_addproduct"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/seller_profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_profile"
+        app:showAsAction="always"
+        />
+
+</menu>
