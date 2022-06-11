@@ -3,14 +3,19 @@ package com.example.minibis;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.Window;
+import android.widget.Toast;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -19,7 +24,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.lang.reflect.Method;
 
-public class    MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
 
     BottomNavigationView navigationView;
@@ -28,6 +33,12 @@ public class    MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE,100);
+        checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE,101);
+        checkPermission(Manifest.permission.CAMERA,102);
+        checkPermission(Manifest.permission.INTERNET,103);
+        checkPermission(Manifest.permission.ACCESS_NETWORK_STATE,104);
 
         showHomeFragment();
         navigationView=(BottomNavigationView) findViewById(R.id.bottomNavigationView);
@@ -99,6 +110,14 @@ public class    MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         finishAffinity();
+    }
+
+    public void checkPermission(String permission, int requestCode)
+    {
+        // Checking if permission is not granted
+        if (ContextCompat.checkSelfPermission(MainActivity.this, permission) == PackageManager.PERMISSION_DENIED) {
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{permission}, requestCode);
+        }
     }
 
    /* public boolean onCreateOptionMenu(Menu menu){

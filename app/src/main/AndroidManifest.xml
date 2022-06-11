@@ -28,9 +28,6 @@
             android:name=".contactus"
             android:exported="false" />
         <activity
-            android:name=".login_in_seller"
-            android:exported="true" />
-        <activity
             android:name=".ForgotPasswordActivity"
             android:exported="true" />
         <activity
@@ -76,10 +73,10 @@
             android:name=".signupcustomer"
             android:exported="true" />
         <activity
-            android:name=".signin_sell1"
+            android:name=".signupseller1"
             android:exported="true" />
         <activity
-            android:name=".signin_sell2"
+            android:name=".signupseller2"
             android:exported="true" />
         <activity
             android:name=".EditProfilePage"

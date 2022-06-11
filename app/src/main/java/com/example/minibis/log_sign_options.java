@@ -41,7 +41,7 @@ public class log_sign_options extends AppCompatActivity {
         btnseller.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i2 = new Intent(getApplicationContext(),signin_sell1.class);
+                Intent i2 = new Intent(getApplicationContext(), signupseller1.class);
                 startActivity(i2);
                 finish();
             }

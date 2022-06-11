@@ -117,7 +117,6 @@ public class signupcustomer extends AppCompatActivity {
                                     userInfo.put("MobileNumber",mobile);
                                     userInfo.put("Gender",gender);
                                     firestore=FirebaseFirestore.getInstance();
-                                    Log.i("INFO","Fine till Get Instance");
                                     firestore.collection("Users").document(currentUser.getUid()).set(userInfo)
                                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                         @Override
