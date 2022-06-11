@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -124,6 +125,7 @@ TextView editprofile,wishlist,ordelist,cart,faq,aboutus,contactus,termsandcond,h
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
+                Toast.makeText(getActivity(), "Logout Success", Toast.LENGTH_SHORT).show();
                 new Handler().post(new Runnable() {
 
                     @Override

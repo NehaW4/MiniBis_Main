@@ -2,6 +2,7 @@ package com.example.minibis;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -17,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -39,6 +41,8 @@ public class signupseller2 extends AppCompatActivity {
     private FirebaseFirestore firestore;
     private String brandName,brandMobile,brandEmail,brandPass,brandLogo,brandOwnerNameS,brandInstagramS,brandOwnerAadharS,brandBankAccS,brandBankIFSCS,brandBankUPIS,brandAddressS;
     private static int INTERNET_PERMISSION_CODE=999;
+    private LottieAnimationView loading;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +53,7 @@ public class signupseller2 extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
         }
 
+        loading=(LottieAnimationView) findViewById(R.id.loadingAnimationOnSeller);
         brandOwnerName = (EditText) findViewById(R.id.brandOwnerName);
         brandInstagram = (EditText) findViewById(R.id.brandInstagram);
         brandOwnerAadhar= (EditText) findViewById(R.id.brandOwnerAadhar);
@@ -79,6 +84,7 @@ public class signupseller2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(checkPermission(Manifest.permission.INTERNET,100)){
+                    loading.setVisibility(View.VISIBLE);
                     createNewSellerAccountWithInfo();
                 }
             }
@@ -98,24 +104,31 @@ public class signupseller2 extends AppCompatActivity {
 
         if(TextUtils.isEmpty(brandInstagramS)){
             Toast.makeText(signupseller2.this, "Error: Instagram Id must not be Empty", Toast.LENGTH_SHORT).show();
+            loading.setVisibility(View.INVISIBLE);
         }
         else if(TextUtils.isEmpty(brandOwnerNameS)){
             Toast.makeText(signupseller2.this, "Error: Owner Name must not be Empty", Toast.LENGTH_SHORT).show();
+            loading.setVisibility(View.INVISIBLE);
         }
         else if(TextUtils.isEmpty(brandOwnerAadharS)){
             Toast.makeText(signupseller2.this, "Error: Aadhar Number is required", Toast.LENGTH_SHORT).show();
+            loading.setVisibility(View.INVISIBLE);
         }
         else if(TextUtils.isEmpty(brandBankAccS)){
             Toast.makeText(signupseller2.this, "Error: Enter Bank account number", Toast.LENGTH_SHORT).show();
+            loading.setVisibility(View.INVISIBLE);
         }
         else if(TextUtils.isEmpty(brandBankIFSCS)){
             Toast.makeText(signupseller2.this, "Error: Enter Bank IFSC Code", Toast.LENGTH_SHORT).show();
+            loading.setVisibility(View.INVISIBLE);
         }
         else if(TextUtils.isEmpty(brandBankUPIS)){
             Toast.makeText(signupseller2.this, "Error: UPI Id is Mandatory", Toast.LENGTH_SHORT).show();
+            loading.setVisibility(View.INVISIBLE);
         }
         else if(TextUtils.isEmpty(brandAddressS)){
             Toast.makeText(signupseller2.this, "Error: Enter registered Address for brand", Toast.LENGTH_SHORT).show();
+            loading.setVisibility(View.INVISIBLE);
         }
         else{
             firebaseAuth = FirebaseAuth.getInstance();
@@ -167,6 +180,7 @@ public class signupseller2 extends AppCompatActivity {
                             }
                             else{
                                 Toast.makeText(signupseller2.this,"Please check you internet connection",Toast.LENGTH_SHORT).show();
+                                loading.setVisibility(View.INVISIBLE);
                             }
 
                         }
