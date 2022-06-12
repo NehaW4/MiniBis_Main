@@ -144,7 +144,7 @@ public class signupseller2 extends AppCompatActivity {
                             userInfo.put("isSeller",true);
                             userInfo.put("BrandName",brandName);
                             userInfo.put("BrandLogo",brandLogo);
-                            userInfo.put("MobileNumber",brandMobile);
+                            userInfo.put("BrandMobileNumber",brandMobile);
                             userInfo.put("BrandOwnerName",brandOwnerNameS);
                             userInfo.put("BrandOwnerAadhar",brandOwnerAadharS);
                             userInfo.put("BrandInstagram",brandInstagramS);

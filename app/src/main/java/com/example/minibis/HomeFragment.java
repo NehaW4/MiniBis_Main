@@ -66,19 +66,18 @@ public class HomeFragment extends Fragment {
 
         int id = item.getItemId();
 
-        if(id == R.id.login_icon){
-
-           /* FragmentManager fm = getFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            HomeFragment llf = new HomeFragment();
-            ft.replace(R.id.login_icon, llf);
-            ft.commit();*/
-            Intent l = new Intent(getActivity(), log_sign_options.class);
-            startActivity(l);
-           // return true;
-        }
+//        if(id == R.id.login_icon){
+//
+//           /* FragmentManager fm = getFragmentManager();
+//            FragmentTransaction ft = fm.beginTransaction();
+//            HomeFragment llf = new HomeFragment();
+//            ft.replace(R.id.login_icon, llf);
+//            ft.commit();*/
+//            Intent l = new Intent(getActivity(), log_sign_options.class);
+//            startActivity(l);
+//           // return true;
+//        }
         return super.onContextItemSelected(item);
-
     }
 
 

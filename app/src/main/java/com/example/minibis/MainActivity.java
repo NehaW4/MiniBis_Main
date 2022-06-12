@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     BottomNavigationView navigationView;
+    Fragment homeFragment,catagoryFragment,profileFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +41,13 @@ public class MainActivity extends AppCompatActivity {
         checkPermission(Manifest.permission.INTERNET,103);
         checkPermission(Manifest.permission.ACCESS_NETWORK_STATE,104);
 
-        showHomeFragment();
+        homeFragment=new HomeFragment();
+        profileFragment=new ProfileFragment();
+        catagoryFragment=new CategoryFragment();
+
         navigationView=(BottomNavigationView) findViewById(R.id.bottomNavigationView);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.body_container,new HomeFragment()).commit();
-        navigationView.setSelectedItemId(R.id.home);
-
+        getSupportFragmentManager().beginTransaction().replace(R.id.body_container,homeFragment).commit();
 
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -53,29 +55,23 @@ public class MainActivity extends AppCompatActivity {
                 Fragment fragment = null;
                 switch (item.getItemId()) {
                     case R.id.home:
-                        fragment = new HomeFragment();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.body_container,homeFragment).commit();
+                        fragment = homeFragment;
                         break;
 
                     case R.id.category:
-                        fragment = new CategoryFragment();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.body_container,catagoryFragment).commit();
                         break;
 
                     case R.id.profile:
-                        fragment = new ProfileFragment();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.body_container,profileFragment).commit();
                         break;
 
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.body_container,fragment).commit();
                 return true;
             }
         });
 
-    }
-
-    private void showHomeFragment() {
-        FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction=manager.beginTransaction();
-        transaction.replace(R.id.body_container,new HomeFragment()).commit();
     }
 
     @Override
@@ -119,21 +115,4 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{permission}, requestCode);
         }
     }
-
-   /* public boolean onCreateOptionMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.homemenu, menu);
-        return true;
-    }
-    public boolean onOptionItemSelected(MenuItem item){
-
-        int id = item.getItemId();
-
-        if(id == R.id.login_icon){
-
-            Intent l = new Intent(MainActivity.this, log_sign_options.class);
-            startActivity(l);
-            return true;
-        }
-        return super.onContextItemSelected(item);
-    }*/
 }

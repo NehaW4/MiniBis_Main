@@ -124,7 +124,7 @@ public class signupcustomer extends AppCompatActivity {
                                     FirebaseUser currentUser=firebaseAuth.getCurrentUser();
                                     Log.d("","Account Created Successfully: "+currentUser.getEmail());
                                     Map<String,Object> userInfo=new HashMap<>();
-                                    userInfo.put("EmailId",currentUser.getEmail());
+                                    userInfo.put("Email",currentUser.getEmail());
                                     userInfo.put("isSeller",false);
                                     userInfo.put("FirstName",firstname);
                                     userInfo.put("LastName",lastname);

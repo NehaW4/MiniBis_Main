@@ -53,7 +53,7 @@
 
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/shapeableImageView2"
+                    android:id="@+id/ProfileFragmentProfileIcon"
                     android:layout_width="410dp"
                     android:layout_height="79dp"
                     android:scaleType="fitXY"

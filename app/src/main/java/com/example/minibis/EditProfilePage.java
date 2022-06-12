@@ -74,12 +74,12 @@ public class EditProfilePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile_page);
 
-        profilepic = findViewById(R.id.profilepic);
-        editname = findViewById(R.id.editname);
+        profilepic = findViewById(R.id.EditProfilePicProfilePage);
+        editname = findViewById(R.id.editNameProfilePage);
         set = findViewById(R.id.setting_profile_image);
         pd = new ProgressDialog(this);
         pd.setCanceledOnTouchOutside(false);
-        editpassword = findViewById(R.id.changepassword);
+        editpassword = findViewById(R.id.changePasswordProfilePage);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();
