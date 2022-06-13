@@ -55,6 +55,7 @@
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_login_in_activity.xml" value="0.264" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_login_in_seller.xml" value="0.21666666666666667" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_main.xml" value="0.21666666666666667" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_product_list_display.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_sign_in.xml" value="0.21666666666666667" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_sign_up.xml" value="0.21666666666666667" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_signin_cust2.xml" value="0.4" />
@@ -66,7 +67,7 @@
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_welcome.xml" value="0.1" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/fragment_category.xml" value="0.2" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/fragment_home.xml" value="0.264" />
-        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/fragment_profile.xml" value="0.16799999999999998" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/menu/homemenu.xml" value="0.21666666666666667" />
       </map>
     </option>

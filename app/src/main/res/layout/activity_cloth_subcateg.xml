@@ -83,6 +83,7 @@
                 android:id="@+id/ethnicClothingCategory"
                 android:layout_width="0dp"
                 android:layout_height="150dp"
+                android:layout_marginTop="1dp"
                 android:background="@drawable/layoutborderblack"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

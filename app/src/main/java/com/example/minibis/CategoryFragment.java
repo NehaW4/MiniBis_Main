@@ -28,37 +28,40 @@ public class CategoryFragment extends Fragment {
         expand1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), cloth_subcateg.class);
-                startActivity(intent);
-
+                Intent okIntent=new Intent(view.getContext(),cloth_subcateg.class);
+                startActivity(okIntent);
             }
         });
         expand2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1= new Intent(view.getContext(),access_sub.class);
-                startActivity(intent1);
+                Intent okIntent=new Intent(view.getContext(),ProductListDisplay.class);
+                okIntent.putExtra("category",2);
+                startActivity(okIntent);
             }
         });
         expand3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent2= new Intent(view.getContext(),footwear_sub.class);
-                startActivity(intent2);
+                Intent okIntent=new Intent(view.getContext(),ProductListDisplay.class);
+                okIntent.putExtra("category",3);
+                startActivity(okIntent);
             }
         });
         expand4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent3= new Intent(view.getContext(),skincare_sub.class);
-                startActivity(intent3);
+                Intent okIntent=new Intent(view.getContext(),ProductListDisplay.class);
+                okIntent.putExtra("category",4);
+                startActivity(okIntent);
             }
         });
         expand5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent4= new Intent(view.getContext(),homedecor_sub.class);
-                startActivity(intent4);
+                Intent okIntent=new Intent(view.getContext(),ProductListDisplay.class);
+                okIntent.putExtra("category",5);
+                startActivity(okIntent);
             }
         });
         return view;

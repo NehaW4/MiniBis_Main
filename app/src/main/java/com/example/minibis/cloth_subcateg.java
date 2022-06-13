@@ -21,15 +21,17 @@ public class cloth_subcateg extends AppCompatActivity {
         view1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i1=new Intent(cloth_subcateg.this, cloth_western.class);
-                startActivity(i1);
+                Intent okIntent=new Intent(cloth_subcateg.this,ProductListDisplay.class);
+                okIntent.putExtra("category",0);
+                startActivity(okIntent);
             }
         });
         view2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i2=new Intent(cloth_subcateg.this, cloth_ethnic.class);
-                startActivity(i2);
+                Intent okIntent=new Intent(cloth_subcateg.this,ProductListDisplay.class);
+                okIntent.putExtra("category",1);
+                startActivity(okIntent);
             }
         });
     }
