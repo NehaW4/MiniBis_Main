@@ -43,7 +43,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class seller_AddProductFragment extends Fragment {
+public class AddProduct extends Fragment {
 
     String selected_cate = "";
     Button imgbtn;

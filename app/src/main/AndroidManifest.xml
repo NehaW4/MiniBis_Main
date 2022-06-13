@@ -52,12 +52,6 @@
             android:name=".Login_in_activity"
             android:exported="true" />
         <activity
-            android:name=".access_sub"
-            android:exported="true" />
-        <activity
-            android:name=".footwear_sub"
-            android:exported="true" />
-        <activity
             android:name=".skincare_sub"
             android:exported="true" />
         <activity
@@ -80,12 +74,6 @@
             android:exported="true" />
         <activity
             android:name=".EditProfilePage"
-            android:exported="true" />
-        <activity
-            android:name=".cloth_ethnic"
-            android:exported="true" />
-        <activity
-            android:name=".cloth_western"
             android:exported="true" />
     </application>
 

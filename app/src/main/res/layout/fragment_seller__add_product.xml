@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#0A000000"
-    tools:context=".seller_AddProductFragment">
+    tools:context=".AddProduct">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
