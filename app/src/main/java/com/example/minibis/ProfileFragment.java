@@ -141,7 +141,7 @@ public class ProfileFragment extends Fragment {
         faq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent10 = new Intent(view.getContext(),contactus.class);
+                Intent intent10 = new Intent(view.getContext(),FAQ.class);
                 startActivity(intent10);
                 ((Activity)getActivity()).overridePendingTransition(0,0);
 
@@ -161,8 +161,6 @@ public class ProfileFragment extends Fragment {
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK
                                 | Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         getActivity().overridePendingTransition(0, 0);
-                        getActivity().finish();
-
                         getActivity().overridePendingTransition(0, 0);
                         startActivity(intent);
                     }
