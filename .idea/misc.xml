@@ -10,6 +10,7 @@
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_cloth_ethnic.xml" value="0.1" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_contactus.xml" value="0.25" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_edit_profile_page.xml" value="0.22" />
+        <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_faq.xml" value="0.22447916666666667" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_login_in_acitvity.xml" value="0.1" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_login_in_seller.xml" value="0.1" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_main.xml" value="0.18" />
@@ -35,5 +36,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.22447916666666667" />
+      </ProjectState>
+    </option>
   </component>
 </project>

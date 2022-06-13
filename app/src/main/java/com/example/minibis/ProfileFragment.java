@@ -139,7 +139,7 @@ public class ProfileFragment extends Fragment {
         faq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent10 = new Intent(view.getContext(),contactus.class);
+                Intent intent10 = new Intent(view.getContext(),FAQ.class);
                 startActivity(intent10);
                 ((Activity)getActivity()).overridePendingTransition(0,0);
 

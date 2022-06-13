@@ -6,4 +6,212 @@
     android:layout_height="match_parent"
     tools:context=".FAQ">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            >
+
+            <TextView
+                android:id="@+id/head"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:fontFamily="@font/baloo"
+                android:layout_gravity="center"
+                android:text="FAQ's"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/msg1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/baloo"
+               android:textStyle="bold"
+                android:text="1. How can I order ?"
+                android:textSize="18dp" />
+            <TextView
+                android:id="@+id/msgans1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/baloo"
+                android:layout_gravity="center"
+                android:text="\t Ans ➡\n\t\t\t\t\t\t\t\t\t\t\t\t\t You can order easily using our online platform. When you find a product you need, you can add it to cart, login and go through the ordering process. After the order is ready, you will receive order summary to your email. Order summary will also be stored to your account.
+
+You can also easily make reorders afterwards by clicking the “reorder” button on any of your previously made orders. After clicking the “reorder” button the cart will open and you can change quantities or products. "
+                android:textSize="17dp" />
+            <TextView
+                android:id="@+id/msg2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/baloo"
+                android:textStyle="bold"
+                android:text="2. What payment methods can I use?"
+                android:textSize="18dp" />
+            <TextView
+                android:id="@+id/msgans2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/baloo"
+                android:layout_gravity="center"
+                android:text="\t Ans ➡\t\t\t\t\t\t\t\t\t You Can Pay with Cash On Delivery(COD),Through Net Banking Or Using UPI Payment Method. You Can Also Pay Using Credit Or Debit Card.  "
+                android:textSize="17dp" />
+
+            <TextView
+                android:id="@+id/msg3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/baloo"
+                android:textStyle="bold"
+                android:text="3. Why do I see different prices for the same product?"
+                android:textSize="18dp" />
+            <TextView
+                android:id="@+id/msgans3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/baloo"
+                android:layout_gravity="center"
+                android:text="\t Ans ➡\t\t\t\t\t You could see different prices for the same product, as it could be listed by many Sellers. "
+                android:textSize="17dp" />
+
+            <TextView
+                android:id="@+id/msg4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/baloo"
+                android:textStyle="bold"
+                android:text="4. How does 'Instant Cashback' work?"
+                android:textSize="18dp" />
+            <TextView
+                android:id="@+id/msgans4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/baloo"
+                android:layout_gravity="center"
+                android:text="\t Ans ➡\t\t\t\t\t 'Instant Cashback' is applied directly to the product or order value in your cart and you do not have to wait for the cashback to be credited to your bank account/credit or debit card at a later date."
+                android:textSize="17dp" />
+            <TextView
+                android:id="@+id/msg5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/baloo"
+                android:textStyle="bold"
+                android:text="5. How do I cancel the order, I have placed?"
+                android:textSize="18dp" />
+            <TextView
+                android:id="@+id/msgans5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/baloo"
+                android:layout_gravity="center"
+                android:text="\t Ans ➡\t\t\t\t\t Order can be canceled till the same is out for delivery. Note: This may not be applicable for certain logistics partner. You would see an option to cancel within 'My Orders' section under the main menu of your App then select the item or order you want to cancel. In case you are unable to cancel the order from'My Orders' section, you can refuse it at the time of delivery and refund will be processed into the source account, if order amount was paid online."
+                android:textSize="17dp" />
+            <TextView
+                android:id="@+id/msg6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/baloo"
+                android:textStyle="bold"
+                android:text="6. How can I get my order delivered faster?"
+                android:textSize="18dp" />
+            <TextView
+                android:id="@+id/msgans6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/baloo"
+                android:layout_gravity="center"
+                android:text="\t Ans ➡\t\t\t\t\t Sorry, currently we do not have any service available to expedite the order delivery. In future, if we are offering such service and your area pincode is serviceable, you will receive a communication from our end."
+                android:textSize="17dp" />
+            <TextView
+                android:id="@+id/msg7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/baloo"
+                android:textStyle="bold"
+                android:text="7. I have received a partial item/partial order or an Untenanted/Void packet?"
+                android:textSize="18dp" />
+            <TextView
+                android:id="@+id/msgans7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/baloo"
+                android:layout_gravity="center"
+                android:text="\t Ans ➡\n\t\t\t\t\t\t\t\tKindly reach out to us for pilferage within 48 hours of delivery failing which the claim will not be entertained. Whilst we investigate, request you to please make note of the below pointers:
+Please do not use the item for which claim is being raised.
+You may be required to information’s like, short description of the case (A few questions will be asked to help us understand the scenario)
+The snapshots of the packet and other boxes (If any) (Try to cover the sides which look tampered/damaged as per the Users
+The refund for prepaid/Cash on delivery orders will be done after the investigation
+You may not be liable for a refund, if he/she falls in any of the scenarios stated below:
+Failure to provide adequate information about the case.
+Failure to provide snapshots of the packet and box(if any)
+You must not dispose of the packaging for 3 - 4 days post - delivery. We might need to pick-up your packaging for investigation at our end.
+You have used the item for which claim was raised.
+In case of a component missing from a multi-component item such as Kurta, Bed - sheets, inner wear sets etc.only exchange return option would be provided basis serviceability and product type "
+                android:textSize="17dp" />
+            <Button
+                android:id="@+id/logoutbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="74dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="74dp"
+                android:gravity="center"
+                android:onClick="gotomain"
+                android:text="Go To Home"
+                android:layout_gravity="center"
+                android:textColor="#136dec"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:cornerRadius="10dp" />
+        </LinearLayout>
+    </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,5 +16,6 @@ public class termandpolicy extends AppCompatActivity {
     public void gotomain(View view)
     {
         startActivity(new Intent(getApplicationContext(),MainActivity.class));
+        finish();
     }
 }
