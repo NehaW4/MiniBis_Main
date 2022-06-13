@@ -63,7 +63,7 @@ public class signupcustomer extends AppCompatActivity {
         loading=(LottieAnimationView) findViewById(R.id.loadingAnimationOnCustomer);
 
         Intent okIntent=new Intent(this,MainActivity.class);
-
+        Intent failedIntent=new Intent(this,signupcustomer.class);
         btnsignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -154,6 +154,8 @@ public class signupcustomer extends AppCompatActivity {
                                 else{
                                     Log.w("","Account Cannot be Created: ", task.getException());
                                     Toast.makeText(signupcustomer.this, "Sign Up Failed: "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    startActivity(failedIntent);
+                                    finish();
                                 }
                             }
                         });
