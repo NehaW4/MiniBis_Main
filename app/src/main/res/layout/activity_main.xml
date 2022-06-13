@@ -23,22 +23,4 @@
         app:layout_constraintStart_toStartOf="parent">
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-    <fragment
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        class="com.example.minibis.HomeFragment"
-        />
-
-    <fragment
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        class="com.example.minibis.CategoryFragment"
-        />
-
-    <fragment
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        class="com.example.minibis.ProfileFragment"
-        />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

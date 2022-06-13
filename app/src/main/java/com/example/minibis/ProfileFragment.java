@@ -31,7 +31,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class ProfileFragment extends Fragment {
 
     Button log_profile,logout;
-    LinearLayout editprofalay,cartlay,wishlitlay,orderlistlay;
+    LinearLayout editprofalay,cartlay,wishlitlay,orderlistlay,addproductlay,orderrequestlay;
     TextView editprofile,wishlist,ordelist,cart,faq,aboutus,contactus,termsandcond,headline;
     FirebaseFirestore firestore;
     Boolean isSeller;
@@ -58,6 +58,8 @@ public class ProfileFragment extends Fragment {
         logout=(Button) view.findViewById(R.id.logoutbtn);
         headline=(TextView) view.findViewById(R.id.headlineOfProfileFragment);
         profileIcon=(ShapeableImageView) view.findViewById(R.id.ProfileFragmentProfileIcon);
+        addproductlay=(LinearLayout) view.findViewById(R.id.addProductLay);
+        orderrequestlay=(LinearLayout) view.findViewById(R.id.viewOrderRequestLay);
 
         if(FirebaseAuth.getInstance().getCurrentUser()==null)
             {
@@ -67,6 +69,8 @@ public class ProfileFragment extends Fragment {
                 cartlay.setVisibility(View.GONE);
                 ((Button) view.findViewById(R.id.logoutbtn)).setVisibility(View.GONE);
                 headline.setText("Welcome to MiniBis");
+                addproductlay.setVisibility(View.GONE);
+                orderrequestlay.setVisibility(View.GONE);
             }
         else{
             if(currentUserDataDoc==null){
@@ -194,9 +198,13 @@ public class ProfileFragment extends Fragment {
                 if(logo!=null){
                     profileIcon.setImageBitmap(logo);
                 }
+                cartlay.setVisibility(View.GONE);
+                wishlitlay.setVisibility(View.GONE);
             }
             else{
                 headline.setText("Welcome, "+currentUserDataDoc.getString("FirstName"));
+                addproductlay.setVisibility(View.GONE);
+                orderrequestlay.setVisibility(View.GONE);
             }
         }
         else{
