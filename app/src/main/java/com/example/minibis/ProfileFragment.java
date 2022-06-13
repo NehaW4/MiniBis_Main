@@ -117,7 +117,7 @@ public class ProfileFragment extends Fragment {
         aboutus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent10 = new Intent(view.getContext(),contactus.class);
+                Intent intent10 = new Intent(view.getContext(),aboutus.class);
                 startActivity(intent10);
                 ((Activity)getActivity()).overridePendingTransition(0,0);
 
@@ -126,7 +126,7 @@ public class ProfileFragment extends Fragment {
         termsandcond.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent10 = new Intent(view.getContext(),contactus.class);
+                Intent intent10 = new Intent(view.getContext(),termandpolicy.class);
                 startActivity(intent10);
                 ((Activity)getActivity()).overridePendingTransition(0,0);
 
