@@ -14,4 +14,10 @@
 
 
     </style>
+    <style name="Theme.MiniBis.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.MiniBis.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.MiniBis.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
