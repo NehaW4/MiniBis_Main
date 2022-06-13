@@ -24,7 +24,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:title="Profile"
+            app:title="Account Dashboard"
             app:titleMarginEnd="60dp"
             app:titleMarginStart="36dp"
             app:titleTextColor="#136dec" />

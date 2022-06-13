@@ -3,108 +3,129 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@color/white">
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:orientation="vertical">
 
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/textView18"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Clothing"
-            android:textSize="30sp"
             android:fontFamily="@font/brandon_grotesque_black"
+            android:gravity="center"
             android:padding="10dp"
-            android:textAllCaps="true"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:background="@drawable/ssubcat_bg"
-            android:layout_margin="30dp"
-            android:scaleX="1.2">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/baloo"
-                android:padding="25dp"
-                android:text="Western Wear"
-                android:scaleX="0.7"
-                android:scaleY="0.8"
-                android:textSize="30sp"
-                android:layout_marginLeft="-33dp"/>
-
-            <Button
-                android:id="@+id/view_western"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:background="#00000000"
-                android:padding="20dp"
-                android:text="View all"
-                android:textColor="@color/black"/>
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:src="@drawable/western_icon"
-                android:scaleX="0.7"
-                android:layout_alignParentRight="true"/>
-
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="378dp"
-            android:layout_height="155dp"
-            android:layout_margin="26dp"
-            android:background="@drawable/ssubcat_bg"
-            android:scaleX="10">
-
-        </RelativeLayout>
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="-145dp"
-            android:scaleX="1.4"
-            android:scaleY="1.7"
-            android:src="@drawable/eethinic_icon"
-            android:layout_marginLeft="255dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo"
-            android:padding="25dp"
-            android:text="Ethnic Wear"
+            android:text="Clothing"
+            android:textAllCaps="true"
             android:textSize="30sp"
-            android:scaleX="0.8"
-            android:scaleY="0.8"
-            android:layout_marginLeft="-12dp"
-            android:layout_marginTop="-116dp"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/view_ethnic"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="VIEW ALL"
-            android:background="#00000000"
-            android:textColor="@color/black"
-            android:padding="20dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="-7dp"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView18">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/westernClothingCategory"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:background="@drawable/layoutborderblack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/textView27"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Explore All >"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView9"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:gravity="center"
+                    android:padding="25dp"
+                    android:text="Westen Clothing"
+                    android:textSize="30sp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView9"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/western_icon" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ethnicClothingCategory"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:background="@drawable/layoutborderblack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/westernClothingCategory">
+
+                <TextView
+                    android:id="@+id/textView31"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Explore All >"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView10"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView29" />
+
+                <TextView
+                    android:id="@+id/textView29"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:gravity="center"
+                    android:padding="25dp"
+                    android:text="Ethnic Clothing"
+                    android:textSize="30sp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView10"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/eethinic_icon" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-
-
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

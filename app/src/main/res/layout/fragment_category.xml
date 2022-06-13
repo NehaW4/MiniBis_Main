@@ -3,256 +3,300 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".CategoryFragment"
-    android:background="@color/white">
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    tools:context=".CategoryFragment">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:orientation="vertical">
 
-        <RelativeLayout
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/headerInCategories"
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize">
-
-            <ImageView
-                android:id="@+id/back_pressed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:padding="15dp"
-                android:src="@drawable/searchbar_arrow" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:padding="15dp"
-                android:src="@drawable/searchbar_search" />
-        </RelativeLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="categories"
-            android:textSize="30sp"
-            android:fontFamily="@font/brandon_grotesque_black"
-            android:padding="10dp"
-            android:textAllCaps="true"/>
+            android:foregroundGravity="center_vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:background="@drawable/ssubcat_bg">
+            <ImageView
+                android:id="@+id/searchIconInCategories"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="7dp"
+                android:src="@drawable/searchbar_search"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/baloo"
-                android:padding="25dp"
-                android:text="Clothing"
-                android:scaleX="0.8"
-                android:scaleY="0.8"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/expand_cloth"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:background="#00000000"
-                android:padding="20dp"
-                android:text="@string/expand_all"
-                android:textColor="@color/black" />
-
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:src="@drawable/clothing1"
-                android:layout_alignParentRight="true"/>
-
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="378dp"
-            android:layout_height="155dp"
-            android:layout_margin="26dp"
-            android:background="@drawable/ssubcat_bg"
-            android:scaleX="10">
-
-        </RelativeLayout>
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="-152dp"
-            android:scaleX="1.6"
-            android:scaleY="1.5"
-            android:src="@drawable/accessories1"
-            android:layout_marginLeft="20dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo"
-            android:padding="25dp"
-            android:text="Accessories"
-            android:textSize="30sp"
-            android:scaleX="0.8"
-            android:scaleY="0.8"
-            android:layout_marginLeft="174dp"
-            android:layout_marginTop="-130dp"/>
-
-        <Button
-            android:id="@+id/expand_access"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/expand_all"
-            android:background="#00000000"
-            android:textColor="@color/black"
-            android:padding="20dp"
-            android:layout_marginLeft="200dp"
-            android:layout_marginTop="-20dp"/>
-
-
-
-        <RelativeLayout
-            android:layout_width="374dp"
-            android:layout_height="150dp"
-            android:layout_margin="33dp"
-            android:scaleX="2"
-            android:background="@drawable/ssubcat_bg">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="65dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="160dp"
-                android:fontFamily="@font/baloo"
-                android:padding="25dp"
-                android:scaleX="0.9"
-                android:scaleY="1.4"
-                android:text="Footwear" />
-
-            <Button
-                android:id="@+id/expand_foot"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:background="#00000000"
-                android:padding="20dp"
-                android:text="@string/expand_all"
-                android:textColor="@color/black"
-                android:layout_marginTop="-12dp"
-                android:scaleX="0.5"
-                android:layout_marginLeft="50dp"/>
-
-
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_alignParentRight="true"
-                android:scaleY="1.1"
-                android:src="@drawable/footwear1"
-                android:layout_marginRight="60dp"
-                android:layout_marginTop="-5dp"
-                android:scaleX="0.5"/>
-
-
-
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:background="@drawable/ssubcat_bg">
-
-        </RelativeLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Skincare"
-            android:textSize="30sp"
-            android:scaleX="0.8"
-            android:scaleY="0.8"
-            android:fontFamily="@font/baloo"
-            android:padding="25dp"
-            android:layout_marginTop="-139dp"
-            android:layout_marginLeft="165dp"/>
-
-
-        <Button
-            android:id="@+id/expand_skin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/expand_all"
-            android:background="#00000000"
-            android:textColor="@color/black"
-            android:padding="20dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="-10dp"
-            android:layout_marginLeft="180dp"/>
-
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/skincare1"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="250dp"
-            android:layout_marginTop="-160dp"/>
-
-        <RelativeLayout
-            android:layout_width="374dp"
-            android:layout_height="150dp"
-            android:layout_margin="24dp"
-            android:scaleX="2"
-            android:background="@drawable/ssubcat_bg">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Home-decor"
+                android:fontFamily="@font/brandon_grotesque_black"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="categories"
+                android:textAllCaps="true"
                 android:textSize="30sp"
-                android:fontFamily="@font/baloo"
-                android:padding="25dp"
-                android:scaleX="0.4"
-                android:layout_marginLeft="15dp"
-                android:scaleY="0.9"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <Button
-                android:id="@+id/expand_home"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="-12dp"
-                android:background="#00000000"
-                android:padding="20dp"
-                android:scaleX="0.5"
-                android:text="@string/expand_all"
-                android:textColor="@color/black" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/headerInCategories">
 
-
-            <ImageView
-                android:layout_width="150dp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clothingCategory"
+                android:layout_width="0dp"
                 android:layout_height="150dp"
-                android:layout_alignParentRight="true"
-                android:scaleY="0.9"
-                android:src="@drawable/homedecor1"
-                android:layout_marginRight="60dp"
-                android:layout_marginTop="-5dp"
-                android:scaleX="0.5"/>
+                android:background="@drawable/layoutborderblack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:gravity="center"
+                    android:padding="25dp"
+                    android:text="Clothing"
+                    android:textSize="30sp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView7"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="150dp"
+                    android:layout_height="0dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@color/white"
+                    android:src="@drawable/clothing1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        </RelativeLayout>
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Explore All >"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView7"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
-    </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/footwearCatagory"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="1dp"
+                android:background="@drawable/layoutborderblack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/skincareCategory">
+
+                <TextView
+                    android:id="@+id/textView26"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Explore All >"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView15"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textView25" />
+
+                <ImageView
+                    android:id="@+id/imageView15"
+                    android:layout_width="150dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/white"
+                    android:src="@drawable/footwear"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView25"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:gravity="center"
+                    android:padding="25dp"
+                    android:text="Footwear"
+                    android:textSize="30sp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView15"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/skincareCategory"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="1dp"
+                android:background="@drawable/layoutborderblack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/accessoriesCategory">
+
+                <TextView
+                    android:id="@+id/textView24"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Explore All >"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView6"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:gravity="center"
+                    android:padding="25dp"
+                    android:text="Skincare"
+                    android:textSize="30sp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView6"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="150dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/white"
+                    android:src="@drawable/skincare1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/accessoriesCategory"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="1dp"
+                android:background="@drawable/layoutborderblack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/clothingCategory">
+
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Explore All >"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="150dp"
+                    android:layout_height="0dp"
+                    android:background="@color/white"
+                    android:src="@drawable/accessories1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:gravity="center"
+                    android:padding="25dp"
+                    android:text="Accessories"
+                    android:textSize="30sp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/homedecorCategory"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_marginBottom="100dp"
+                android:background="@drawable/layoutborderblack"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/footwearCatagory">
+
+                <TextView
+                    android:id="@+id/textView28"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Explore All >"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView16"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+                <ImageView
+                    android:id="@+id/imageView16"
+                    android:layout_width="150dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/white"
+                    android:src="@drawable/homedecor1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView30"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:gravity="center"
+                    android:padding="25dp"
+                    android:text="Home-Decor"
+                    android:textSize="30sp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView16"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

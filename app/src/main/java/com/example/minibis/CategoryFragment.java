@@ -3,27 +3,27 @@ package com.example.minibis;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 public class CategoryFragment extends Fragment {
 
 
-    Button expand1,expand2,expand3,expand4,expand5;
+    ConstraintLayout expand1,expand2,expand3,expand4,expand5;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_category,container,false);
 
-        expand1=(Button) view.findViewById(R.id.expand_cloth);
-        expand2=(Button) view.findViewById(R.id.expand_access);
-        expand3=(Button) view.findViewById(R.id.expand_foot);
-        expand4=(Button) view.findViewById(R.id.expand_skin);
-        expand5=(Button) view.findViewById(R.id.expand_home);
+        expand1=(ConstraintLayout) view.findViewById(R.id.clothingCategory);
+        expand2=(ConstraintLayout) view.findViewById(R.id.accessoriesCategory);
+        expand3=(ConstraintLayout) view.findViewById(R.id.skincareCategory);
+        expand4=(ConstraintLayout) view.findViewById(R.id.footwearCatagory);
+        expand5=(ConstraintLayout) view.findViewById(R.id.homedecorCategory);
 
         expand1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,8 +61,6 @@ public class CategoryFragment extends Fragment {
                 startActivity(intent4);
             }
         });
-
-
         return view;
     }
 }

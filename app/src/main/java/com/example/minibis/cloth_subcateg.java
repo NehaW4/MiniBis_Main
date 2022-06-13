@@ -1,6 +1,7 @@
 package com.example.minibis;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,13 +10,13 @@ import android.widget.Button;
 
 public class cloth_subcateg extends AppCompatActivity {
 
-    Button view1,view2;
+    ConstraintLayout view1,view2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cloth_subcateg);
-        view1=(Button) findViewById(R.id.view_western);
-        view2=(Button) findViewById(R.id.view_ethnic);
+        view1=(ConstraintLayout) findViewById(R.id.westernClothingCategory);
+        view2=(ConstraintLayout) findViewById(R.id.ethnicClothingCategory);
 
         view1.setOnClickListener(new View.OnClickListener() {
             @Override

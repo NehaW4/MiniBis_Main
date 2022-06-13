@@ -81,6 +81,12 @@
         <activity
             android:name=".EditProfilePage"
             android:exported="true" />
+        <activity
+            android:name=".cloth_ethnic"
+            android:exported="true" />
+        <activity
+            android:name=".cloth_western"
+            android:exported="true" />
     </application>
 
 </manifest>
