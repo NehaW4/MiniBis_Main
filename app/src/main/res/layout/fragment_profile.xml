@@ -131,6 +131,7 @@
                 android:paddingBottom="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                android:visibility="gone"
                 app:layout_constraintTop_toBottomOf="@+id/editnamelay">
 
                 <ImageView
@@ -163,6 +164,7 @@
                 android:paddingTop="10dp"
                 android:paddingRight="25dp"
                 android:paddingBottom="10dp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cartlay">
@@ -231,6 +233,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:cornerRadius="10dp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout11" />
@@ -336,9 +339,10 @@
                 android:paddingTop="10dp"
                 android:paddingRight="25dp"
                 android:paddingBottom="10dp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/viewOrderRequestLay">
+                app:layout_constraintTop_toBottomOf="@+id/allProductsLay">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -369,6 +373,7 @@
                 android:paddingTop="10dp"
                 android:paddingRight="25dp"
                 android:paddingBottom="10dp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/login_btn">
@@ -421,6 +426,7 @@
                 android:paddingTop="10dp"
                 android:paddingRight="25dp"
                 android:paddingBottom="10dp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/wishlistlay">
@@ -441,6 +447,40 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/allProductsLay"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="64dp"
+                android:background="@drawable/background_btn"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="25dp"
+                android:paddingTop="10dp"
+                android:paddingRight="25dp"
+                android:paddingBottom="10dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/viewOrderRequestLay">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_store" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="Products"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/viewOrderRequestLay"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -454,6 +494,7 @@
                 android:paddingTop="10dp"
                 android:paddingRight="25dp"
                 android:paddingBottom="10dp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/addProductLay">

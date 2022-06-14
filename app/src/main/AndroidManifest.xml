@@ -12,12 +12,16 @@
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="false"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/minibiziconsquare"
         android:label="@string/app_name"
         android:largeHeap="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/minibiziconround"
         android:supportsRtl="true"
         android:theme="@style/Theme.MiniBis" >
+        <activity
+            android:name=".SellerAllProducts"
+            android:exported="false">
+        </activity>
         <activity
             android:name=".FAQ"
             android:exported="false" />
@@ -38,10 +42,10 @@
             android:exported="true" />
         <activity
             android:name=".seller_navigation"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".log_sign_options"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".Splash_Screen"
             android:exported="true" >
@@ -53,43 +57,28 @@
         </activity>
         <activity
             android:name=".Login_in_activity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
-            android:name=".access_sub"
-            android:exported="true" />
-        <activity
-            android:name=".footwear_sub"
-            android:exported="true" />
-        <activity
-            android:name=".skincare_sub"
-            android:exported="true" />
+            android:name=".AddProduct"
+            android:exported="false" />
         <activity
             android:name=".cloth_subcateg"
-            android:exported="true" />
-        <activity
-            android:name=".homedecor_sub"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".signupcustomer"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".signupseller1"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".signupseller2"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".EditProfilePage"
-            android:exported="true" />
-        <activity
-            android:name=".cloth_ethnic"
-            android:exported="true" />
-        <activity
-            android:name=".cloth_western"
-            android:exported="true" />
+            android:exported="false" />
     </application>
 
 </manifest>
