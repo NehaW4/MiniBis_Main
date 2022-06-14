@@ -29,6 +29,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -42,11 +43,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class EditProfilePage extends AppCompatActivity {
 
@@ -64,11 +71,12 @@ public class EditProfilePage extends AppCompatActivity {
     private static final int STORAGE_REQUEST = 200;
     private static final int IMAGEPICK_GALLERY_REQUEST = 300;
     private static final int IMAGE_PICKCAMERA_REQUEST = 400;
+    private final int PICK_IMAGE_REQUEST = 22;
     String cameraPermission[];
     String storagePermission[];
     Uri imageuri;
     String profileOrCoverPhoto;
-
+    FirebaseFirestore firestore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,6 +91,7 @@ public class EditProfilePage extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();
+
         storageReference = FirebaseStorage.getInstance().getReference();
         databaseReference = firebaseDatabase.getReference("Users");
         cameraPermission = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
@@ -137,6 +146,22 @@ public class EditProfilePage extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        firestore.collection("Users").document(firebaseUser.getUid());
+        DocumentReference df=firestore.collection("Users").document(firebaseUser.getUid());
+        df.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+
+                    @Override
+                    public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                        String img = value.getString("Profilepic");
+                        System.out.println(img);
+                        try {
+                            Glide.with(EditProfilePage.this).load(img).into(set);
+                        } catch (Exception e) {
+                            System.out.println(e);
+                        }
+                    }
+                });
+        /*
         Query query = databaseReference.orderByChild("email").equalTo(firebaseUser.getEmail());
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -157,7 +182,7 @@ public class EditProfilePage extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });
+        });*/
 
         editpassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -171,7 +196,26 @@ public class EditProfilePage extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Query query = databaseReference.orderByChild("email").equalTo(firebaseUser.getEmail());
+        firestore.collection("Users").document(firebaseUser.getUid());
+        DocumentReference df=firestore.collection("Users").document(firebaseUser.getUid());
+        df.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+            String img=value.getString("Profilepic");
+            System.out.println(img);
+            try {
+                    Glide.with(EditProfilePage.this).load(img).into(set);
+                }
+            catch (Exception e)
+            {
+                System.out.println(e);
+            }
+            }
+
+        });
+
+       /* Query query = databaseReference.orderByChild("email").equalTo(firebaseUser.getEmail());
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -191,7 +235,7 @@ public class EditProfilePage extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });
+        });*/
         editpassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -455,10 +499,13 @@ public class EditProfilePage extends AppCompatActivity {
     // We will upload the image from here.
     private void uploadProfileCoverPhoto(final Uri uri) {
         pd.show();
+        Map<String,Object> userInfo=new HashMap<>();
 
         // We are taking the filepath as storagepath + firebaseauth.getUid()+".png"
         String filepathname = storagepath + "" + profileOrCoverPhoto + "_" + firebaseUser.getUid();
-        StorageReference storageReference1 = storageReference.child(filepathname);
+
+
+       StorageReference storageReference1 = storageReference.child(filepathname);
         storageReference1.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -469,22 +516,22 @@ public class EditProfilePage extends AppCompatActivity {
                 final Uri downloadUri = uriTask.getResult();
                 if (uriTask.isSuccessful()) {
 
-                    // updating our image url into the realtime database
-                    HashMap<String, Object> hashMap = new HashMap<>();
-                    hashMap.put(profileOrCoverPhoto, downloadUri.toString());
-                    databaseReference.child(firebaseUser.getUid()).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            pd.dismiss();
-                            Toast.makeText(EditProfilePage.this, "Updated", Toast.LENGTH_LONG).show();
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            pd.dismiss();
-                            Toast.makeText(EditProfilePage.this, "Error Updating ", Toast.LENGTH_LONG).show();
-                        }
-                    });
+                   firestore=FirebaseFirestore.getInstance();
+        firestore.collection("Users").document(firebaseUser.getUid()).update("Profilepic",filepathname).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                pd.dismiss();
+                Toast.makeText(EditProfilePage.this,"Profile Pic Updated",Toast.LENGTH_SHORT);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                pd.dismiss();
+                Toast.makeText(EditProfilePage.this,"Failed To Update" +
+                        "",Toast.LENGTH_SHORT);
+
+            }
+        });
                 } else {
                     pd.dismiss();
                     Toast.makeText(EditProfilePage.this, "Error", Toast.LENGTH_LONG).show();
