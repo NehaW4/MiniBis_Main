@@ -133,12 +133,12 @@ public class signupseller1 extends AppCompatActivity {
                         Bitmap selectedImageBitmap=null;
                         try {
                             selectedImageBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImageUri);
+                            uploadedImage.setImageBitmap(selectedImageBitmap);
+                            brandLogo=ImageStringOperation.getString(selectedImageBitmap);
                         }
                         catch (IOException e) {
                             e.printStackTrace();
                         }
-                        uploadedImage.setImageBitmap(selectedImageBitmap);
-                        brandLogo=ImageStringOperation.getString(selectedImageBitmap);
                     }
                 }
             });

@@ -146,6 +146,12 @@ public class MainActivity extends AppCompatActivity {
         finishAffinity();
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finishAffinity();
+    }
+
     public void checkPermission(String permission, int requestCode)
     {
         // Checking if permission is not granted

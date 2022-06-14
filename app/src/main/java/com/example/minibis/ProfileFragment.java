@@ -62,19 +62,8 @@ public class ProfileFragment extends Fragment {
         orderrequestlay=(LinearLayout) view.findViewById(R.id.viewOrderRequestLay);
         allproductlay=(LinearLayout) view.findViewById(R.id.allProductsLay);
 
-        if(FirebaseAuth.getInstance().getCurrentUser()==null)
-            {
-                editprofalay.setVisibility(View.GONE);
-                wishlitlay.setVisibility(View.GONE);
-                orderlistlay.setVisibility(View.GONE);
-                cartlay.setVisibility(View.GONE);
-                ((Button) view.findViewById(R.id.logoutbtn)).setVisibility(View.GONE);
-                headline.setText("Welcome to MiniBis");
-                addproductlay.setVisibility(View.GONE);
-                orderrequestlay.setVisibility(View.GONE);
-                allproductlay.setVisibility(View.GONE);
-            }
-        else{
+        if(FirebaseAuth.getInstance().getCurrentUser()!=null)
+        {
             if(currentUserDataDoc==null){
                 retriveData();
             }
@@ -82,6 +71,12 @@ public class ProfileFragment extends Fragment {
                 setData();
             }
             log_profile.setVisibility(View.GONE);
+            editprofalay.setVisibility(View.VISIBLE);
+            orderlistlay.setVisibility(View.VISIBLE);
+            logout.setVisibility(View.VISIBLE);
+        }
+        else{
+            headline.setText("Welcome to Minibis");
         }
 
         log_profile.setOnClickListener(new View.OnClickListener() {
@@ -160,6 +155,7 @@ public class ProfileFragment extends Fragment {
                         Intent intent = getActivity().getIntent();
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK
                                 | Intent.FLAG_ACTIVITY_NO_ANIMATION);
+
                         getActivity().overridePendingTransition(0, 0);
                         getActivity().overridePendingTransition(0, 0);
                         startActivity(intent);
@@ -198,17 +194,33 @@ public class ProfileFragment extends Fragment {
                 if(logo!=null){
                     profileIcon.setImageBitmap(logo);
                 }
-                cartlay.setVisibility(View.GONE);
-                wishlitlay.setVisibility(View.GONE);
+                addproductlay.setVisibility(View.VISIBLE);
+                orderrequestlay.setVisibility(View.VISIBLE);
+                allproductlay.setVisibility(View.VISIBLE);
             }
             else{
                 headline.setText("Welcome, "+currentUserDataDoc.getString("FirstName"));
-                addproductlay.setVisibility(View.GONE);
-                orderrequestlay.setVisibility(View.GONE);
+                cartlay.setVisibility(View.VISIBLE);
+                wishlitlay.setVisibility(View.VISIBLE);
             }
         }
         else{
             headline.setText("Welcome to MiniBis");
         }
+        addproductlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent okIntent=new Intent(view.getContext(),AddProduct.class);
+                startActivity(okIntent);
+                ((Activity)getActivity()).overridePendingTransition(0,0);
+            }
+        });
+        allproductlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent okIntent=new Intent(view.getContext(),SellerAllProducts.class);
+                startActivity(okIntent);
+            }
+        });
     }
 }

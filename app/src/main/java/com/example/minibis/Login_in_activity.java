@@ -62,8 +62,8 @@ public class Login_in_activity extends AppCompatActivity {
                                 if(task.isSuccessful()){
                                     Toast.makeText(Login_in_activity.this, "Sign in Success. Redirecting", Toast.LENGTH_SHORT).show();
                                     Log.d("","Login Successful UID: "+firebaseAuth.getCurrentUser().getEmail());
+                                    finishAffinity();
                                     startActivity(okIntent);
-                                    finish();
                                 }
                                 else{
                                     Log.w("","Login Failure: ", task.getException());

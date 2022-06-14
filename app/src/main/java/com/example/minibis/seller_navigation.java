@@ -35,7 +35,7 @@ public class seller_navigation extends AppCompatActivity {
                         break;
 
                     case R.id.addproduct:
-                        fragment = new AddProduct();
+//                        fragment = new AddProduct();
                         break;
 
                     case R.id.seller_profile:
