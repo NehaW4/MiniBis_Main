@@ -219,7 +219,8 @@ public class ProfileFragment extends Fragment {
         allproductlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent okIntent=new Intent(view.getContext(),SellerAllProducts.class);
+                Intent okIntent=new Intent(view.getContext(),ProductListDisplay.class);
+                okIntent.putExtra("category",7);
                 startActivity(okIntent);
             }
         });

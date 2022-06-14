@@ -155,7 +155,7 @@ public class AddProduct extends AppCompatActivity {
                     product.put("ProductCategory",selectedCategory);
                     product.put("ProductImage",productImageString);
                     product.put("ProductSeller",currentUserData.getString("BrandName"));
-                    product.put("SellerLogo",currentUserData.getString("BrandLogo"));
+                    product.put("ProductSellerLogo",currentUserData.getString("BrandLogo"));
                     product.put("ProductAddedDate",productCreationDate);
                     product.put("ProductSellCount",0);
                     product.put("ProductSellerUid",currentUser.getUid());
@@ -181,46 +181,6 @@ public class AddProduct extends AppCompatActivity {
                         }
                     });
                 }
-
-
-//
-//                FirebaseDatabase.getInstance()
-//                        .getReference()
-//                        .child("Product")
-//                        .child("01")
-//                        .setValue(userMap)
-//                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                            @Override
-//                            public void onComplete(@NonNull Task<Void> task) {
-//                                AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-//                                builder.setCancelable(true);
-//                                builder.setMessage("Added Successfully !!!");
-//                                builder.setNegativeButton("Okay", new DialogInterface.OnClickListener() {
-//                                    @Override
-//                                    public void onClick(DialogInterface dialog, int which) {
-//                                        pname.setText("");
-//                                        pdesc.setText("");
-//                                        pprice.setText("");
-//                                        clothingobj.setChecked(false);
-//                                        footwearobj.setChecked(false);
-//                                        skincareobj.setChecked(false);
-//                                        accessoryobj.setChecked(false);
-//                                        homedecorobj.setChecked(false);
-//
-//                                        dialog.cancel();
-//                                    }
-//                                });
-//                                builder.show();
-//                            }
-//                        })
-//
-//                        .addOnFailureListener(new OnFailureListener() {
-//                            @Override
-//                            public void onFailure(@NonNull Exception e) {
-//                                Toast.makeText(getApplicationContext(),"Something went wrong \n Try again Later.....",Toast.LENGTH_LONG);
-//                            }
-//                        });
-
             }
         });
 

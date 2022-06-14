@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.minibis" >
+    package="com.example.minibis">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -17,11 +17,10 @@
         android:largeHeap="true"
         android:roundIcon="@drawable/minibiziconround"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MiniBis" >
+        android:theme="@style/Theme.MiniBis">
         <activity
-            android:name=".SellerAllProducts"
-            android:exported="false">
-        </activity>
+            android:name=".ProductPage"
+            android:exported="false" />
         <activity
             android:name=".FAQ"
             android:exported="false" />
@@ -48,7 +47,7 @@
             android:exported="false" />
         <activity
             android:name=".Splash_Screen"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

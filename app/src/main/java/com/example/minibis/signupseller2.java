@@ -47,11 +47,6 @@ public class signupseller2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signupseller2);
-        if (android.os.Build.VERSION.SDK_INT > 9)
-        {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-        }
 
         loading=(LottieAnimationView) findViewById(R.id.loadingAnimationOnSeller);
         brandOwnerName = (EditText) findViewById(R.id.brandOwnerName);
