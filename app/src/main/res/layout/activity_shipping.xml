@@ -34,7 +34,7 @@
         android:layout_marginLeft="10dp"
         android:layout_gravity="center"
          android:fontFamily="@font/baloo"
-        android:text="\t\t\tYour Product Would Be Shipped And Delivered To Your Location In Few Days.\n\n\n\t\t\t\t\t\t\t\t For Any Query Do Contact Us."
+        android:text="\t\t\tYour Product Would Be Confirmed, Shipped And Delivered To Your Location In Few Days.\n\n\n\t\t\t\t\t\t\t\t For Any Query Do Contact Us."
         android:textSize="20dp" />
 
     <Button
