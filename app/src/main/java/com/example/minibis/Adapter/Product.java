@@ -57,7 +57,12 @@ public class Product implements Serializable {
 
         String[] Cat={"Western Clothing","Ethnic Clothing","Accessories","SkinCare","Footwear","Home-Decor"};
         String[] DCat={"westernClothing","ethnicClothing","accessories","skinCare","footwear","homeDecor"};
-        ProductCategory = Cat[Arrays.asList(DCat).indexOf(productCategory)];
+
+        try {
+            ProductCategory = Cat[Arrays.asList(DCat).indexOf(productCategory)];
+        }catch(Exception e){
+            ProductCategory=productCategory;
+        }
     }
 
     public String getProductImage() {

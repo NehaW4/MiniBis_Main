@@ -101,7 +101,7 @@ public class ProfileFragment extends Fragment {
         wishlitlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent10 = new Intent(view.getContext(),EditProfilePage.class);
+                Intent intent10 = new Intent(view.getContext(),CustomerWishlist.class);
                 startActivity(intent10);
                 ((Activity)getActivity()).overridePendingTransition(0,0);
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/productImageInCart"
+        android:id="@+id/productImageInWishlist"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:background="@drawable/layoutborderblack"
@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/productNameInCart"
+        android:id="@+id/productNameInWishlist"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -23,11 +23,11 @@
         android:textColor="@android:color/black"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/productImageInCart"
+        app:layout_constraintStart_toEndOf="@+id/productImageInWishlist"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/productCategoryInCart"
+        android:id="@+id/productCategoryInWishlist"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -35,11 +35,11 @@
         android:paddingRight="5dp"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/productImageInCart"
-        app:layout_constraintTop_toBottomOf="@+id/productNameInCart" />
+        app:layout_constraintStart_toEndOf="@+id/productImageInWishlist"
+        app:layout_constraintTop_toBottomOf="@+id/productNameInWishlist" />
 
     <TextView
-        android:id="@+id/productPriceInCart"
+        android:id="@+id/productPriceInWishlist"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -48,31 +48,31 @@
         android:textColor="@android:color/holo_green_dark"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/productImageInCart"
-        app:layout_constraintTop_toBottomOf="@+id/productCategoryInCart" />
+        app:layout_constraintStart_toEndOf="@+id/productImageInWishlist"
+        app:layout_constraintTop_toBottomOf="@+id/productCategoryInWishlist" />
 
     <Button
-        android:id="@+id/checkoutButtonInCart"
+        android:id="@+id/addToCartButtonInWishlist"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:backgroundTint="#136DEC"
-        android:text="Proceed To Checkout"
-        app:layout_constraintEnd_toStartOf="@+id/deleteFromCartButtonInCart"
-        app:layout_constraintStart_toEndOf="@+id/productImageInCart"
-        app:layout_constraintTop_toBottomOf="@+id/productPriceInCart" />
+        android:text="Add to Cart"
+        app:layout_constraintEnd_toStartOf="@+id/deleteFromWishlistButtonInWishlist"
+        app:layout_constraintStart_toEndOf="@+id/productImageInWishlist"
+        app:layout_constraintTop_toBottomOf="@+id/productPriceInWishlist" />
 
     <ImageView
-        android:id="@+id/deleteFromCartButtonInCart"
+        android:id="@+id/deleteFromWishlistButtonInWishlist"
         android:layout_width="50dp"
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/checkoutButtonInCart"
+        app:layout_constraintBottom_toBottomOf="@+id/addToCartButtonInWishlist"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/checkoutButtonInCart"
+        app:layout_constraintTop_toTopOf="@+id/addToCartButtonInWishlist"
         app:srcCompat="@drawable/ic_dustbin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

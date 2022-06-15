@@ -26,30 +26,31 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
-public class CartProductListRecyclerAdapter extends RecyclerView.Adapter<CartProductListRecyclerAdapter.CartProductListRecyclerViewHolder> {
+public class WishlistProductListRecyclerAdapter extends RecyclerView.Adapter<WishlistProductListRecyclerAdapter.WishlistProductListRecyclerViewHolder> {
     private ArrayList<Product> productList=new ArrayList<>();
     private Context mContext;
 
-    public CartProductListRecyclerAdapter(ArrayList<Product> products, Context mContext) {
+    public WishlistProductListRecyclerAdapter(ArrayList<Product> products, Context mContext) {
         this.productList = products;
         this.mContext = mContext;
     }
 
-    public class CartProductListRecyclerViewHolder extends RecyclerView.ViewHolder {
+    public class WishlistProductListRecyclerViewHolder extends RecyclerView.ViewHolder {
         ImageView img;
         TextView name;
         TextView price;
-        Button checkout;
+        Button cart;
         TextView category;
         ImageView delete;
-        CartProductListRecyclerViewHolder(View itemView){
+        boolean addedToCart;
+        WishlistProductListRecyclerViewHolder(View itemView){
             super(itemView);
-            img=(ImageView) itemView.findViewById(R.id.productImageInCart);
-            name=(TextView) itemView.findViewById(R.id.productNameInCart);
-            price=(TextView) itemView.findViewById(R.id.productPriceInCart);
-            checkout=(Button) itemView.findViewById(R.id.checkoutButtonInCart);
-            category=(TextView) itemView.findViewById(R.id.productCategoryInCart);
-            delete=(ImageView) itemView.findViewById(R.id.deleteFromCartButtonInCart);
+            img=(ImageView) itemView.findViewById(R.id.productImageInWishlist);
+            name=(TextView) itemView.findViewById(R.id.productNameInWishlist);
+            price=(TextView) itemView.findViewById(R.id.productPriceInWishlist);
+            cart=(Button) itemView.findViewById(R.id.addToCartButtonInWishlist);
+            category=(TextView) itemView.findViewById(R.id.productCategoryInWishlist);
+            delete=(ImageView) itemView.findViewById(R.id.deleteFromWishlistButtonInWishlist);
         }
         public void setProductImage(String image) {
             Bitmap b= ImageStringOperation.getImage(image);
@@ -65,13 +66,25 @@ public class CartProductListRecyclerAdapter extends RecyclerView.Adapter<CartPro
         }
         public void setProductCategory(String Category){category.setText("Category: "+Category);}
         public void setOnClickListener(Product product){
-            checkout.setOnClickListener(new View.OnClickListener() {
+            cart.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent okIntent = new Intent(mContext, PaymentPage.class);
-                    okIntent.putExtra("product", product);
-                    okIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    mContext.startActivity(okIntent);
+                    FirebaseFirestore.getInstance().collection("Users").document(FirebaseAuth.getInstance().getCurrentUser().getUid()).collection("Cart").document(product.getProductId()).set(product).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(mContext, "Product Added to Cart", Toast.LENGTH_SHORT).show();
+                                cart.setEnabled(false);
+                            } else {
+                                Toast.makeText(mContext, "Failed to add to Cart", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(mContext, "Failed to add to Cart", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
             });
             img.setOnClickListener(new View.OnClickListener() {
@@ -86,25 +99,25 @@ public class CartProductListRecyclerAdapter extends RecyclerView.Adapter<CartPro
             delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    FirebaseFirestore.getInstance().collection("Users").document(FirebaseAuth.getInstance().getCurrentUser().getUid()).collection("Cart").document(product.getProductId()).delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    FirebaseFirestore.getInstance().collection("Users").document(FirebaseAuth.getInstance().getCurrentUser().getUid()).collection("Wishlist").document(product.getProductId()).delete().addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
-                                Toast.makeText(mContext, "Product Removed from Cart", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mContext, "Product Removed from Wishlist", Toast.LENGTH_SHORT).show();
                                 productList.remove(getAdapterPosition());
                                 notifyItemRemoved(getAdapterPosition());
                                 notifyItemRangeChanged(getAdapterPosition(),productList.size());
 //                                if(productList.size()==0){
-//                                    ((TextView)itemView.findViewById(R.id.emptyProductListInCart)).setVisibility(View.VISIBLE);
+//                                    ((TextView)itemView.findViewById(R.id.emptyProductListInWishlist)).setVisibility(View.VISIBLE);
 //                                }
                             } else {
-                                Toast.makeText(mContext, "Failed to Remove from Cart", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mContext, "Failed to Remove from Wishlist", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(mContext, "Failed to Remove from Cart", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext, "Failed to Remove from Wishlist", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
@@ -113,10 +126,10 @@ public class CartProductListRecyclerAdapter extends RecyclerView.Adapter<CartPro
     }
 
     @Override
-    public CartProductListRecyclerAdapter.CartProductListRecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public WishlistProductListRecyclerAdapter.WishlistProductListRecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.cartrecyclerproductitem, parent, false);
-        return new CartProductListRecyclerViewHolder(view);
+        View view = layoutInflater.inflate(R.layout.wishlistrecyclerproductitem, parent, false);
+        return new WishlistProductListRecyclerViewHolder(view);
     }
     @Override
     public int getItemCount(){
@@ -124,7 +137,7 @@ public class CartProductListRecyclerAdapter extends RecyclerView.Adapter<CartPro
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CartProductListRecyclerViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull WishlistProductListRecyclerViewHolder holder, int position) {
         final Product product= productList.get(position);
         holder.setProductImage(product.getProductImage());
         holder.setProductName(product.getProductName());
