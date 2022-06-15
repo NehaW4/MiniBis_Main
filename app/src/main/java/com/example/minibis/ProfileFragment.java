@@ -107,6 +107,15 @@ public class ProfileFragment extends Fragment {
 
             }
         });
+        cartlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent okIntent=new Intent(view.getContext(),CustomerCart.class);
+                startActivity(okIntent);
+                ((Activity)getActivity()).overridePendingTransition(0,0);
+
+            }
+        });
 
         contactus.setOnClickListener(new View.OnClickListener() {
             @Override

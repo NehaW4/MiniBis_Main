@@ -19,6 +19,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MiniBis">
         <activity
+            android:name=".CustomerWishlist"
+            android:exported="false" />
+        <activity
+            android:name=".PaymentPage"
+            android:exported="false" />
+        <activity
+            android:name=".CustomerCart"
+            android:exported="false" />
+        <activity
             android:name=".Shipping"
             android:exported="false" />
         <activity

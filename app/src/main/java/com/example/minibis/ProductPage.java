@@ -35,6 +35,7 @@ public class ProductPage extends AppCompatActivity {
     FirebaseFirestore firestore;
     FirebaseUser currentUser;
     Boolean addedToWishlist,addedToCart;
+    Button checkout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class ProductPage extends AppCompatActivity {
         slogo=(ImageView) findViewById(R.id.sellerLogoInProductPage);
         cartButton=(Button) findViewById(R.id.addToCartButtonInProductPage);
         wishlistButton= (Button) findViewById(R.id.wishlistButtonInProductPage);
+        checkout=(Button) findViewById(R.id.checkoutButtonInProductPage);
 
         Intent callingIntent=getIntent();
         product=(Product) callingIntent.getSerializableExtra("product");
@@ -84,6 +86,16 @@ public class ProductPage extends AppCompatActivity {
             addedToCart=false;
             addedToWishlist=false;
         }
+
+        checkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent okIntnet=new Intent(ProductPage.this,PaymentPage.class);
+                okIntnet.putExtra("product",product);
+                startActivity(okIntnet);
+            }
+        });
+
         cartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -97,6 +109,7 @@ public class ProductPage extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     Toast.makeText(ProductPage.this, "Product Added to Cart", Toast.LENGTH_SHORT).show();
                                     addedToCart=true;
+                                    checkout.setVisibility(View.VISIBLE);
                                     cartButton.setText("Remove from Cart");
                                 } else {
                                     Toast.makeText(ProductPage.this, "Failed to add to Cart", Toast.LENGTH_SHORT).show();
@@ -121,6 +134,7 @@ public class ProductPage extends AppCompatActivity {
                                     Toast.makeText(ProductPage.this, "Product Removed from Cart", Toast.LENGTH_SHORT).show();
                                     addedToCart=false;
                                     cartButton.setText("Add to Cart");
+                                    checkout.setVisibility(View.INVISIBLE);
                                 } else {
                                     Toast.makeText(ProductPage.this, "Failed to Remove from Cart", Toast.LENGTH_SHORT).show();
                                 }
@@ -215,12 +229,12 @@ public class ProductPage extends AppCompatActivity {
                 if(task.isSuccessful()){
                     if(task.getResult().exists()){
                         addedToWishlist=true;
-                        wishlistButton.setText("Remove from Cart");
+                        wishlistButton.setText("Remove from Wishlist");
 
                     }
                     else {
                         addedToWishlist = false;
-                        wishlistButton.setText("Add to Cart");
+                        wishlistButton.setText("Add to Wishlist");
                     }
                 }
             }
@@ -239,6 +253,7 @@ public class ProductPage extends AppCompatActivity {
                     if(task.getResult().exists()){
                         addedToCart=true;
                         cartButton.setText("Remove from Cart");
+                        checkout.setVisibility(View.VISIBLE);
                     }
                     else{
                         addedToCart=false;
