@@ -19,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MiniBis">
         <activity
+            android:name=".Shipping"
+            android:exported="false" />
+        <activity
             android:name=".ProductPage"
             android:exported="false" />
         <activity
