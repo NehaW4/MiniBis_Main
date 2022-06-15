@@ -8,6 +8,7 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,10 +23,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
@@ -52,31 +56,23 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class EditProfilePage extends AppCompatActivity {
 
-    private FirebaseAuth firebaseAuth;
-    FirebaseUser firebaseUser;
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
-    StorageReference storageReference;
-    String storagepath = "Users_Profile_Cover_image/";
-    String uid;
+    FirebaseUser currentUser;
     ImageView set;
     TextView profilepic, editname, editpassword;
     ProgressDialog pd;
-    private static final int CAMERA_REQUEST = 100;
-    private static final int STORAGE_REQUEST = 200;
-    private static final int IMAGEPICK_GALLERY_REQUEST = 300;
-    private static final int IMAGE_PICKCAMERA_REQUEST = 400;
-    private final int PICK_IMAGE_REQUEST = 22;
-    String cameraPermission[];
-    String storagePermission[];
-    Uri imageuri;
-    String profileOrCoverPhoto;
+    private static int CAMERA_PERMISSION_CODE=105;
+    private static int IMAGE_CHOOSER_CODE=7777;
+    private boolean isSeller;
+
+    String profilePhotoString;
     FirebaseFirestore firestore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,35 +83,14 @@ public class EditProfilePage extends AppCompatActivity {
         set = findViewById(R.id.setting_profile_image);
         pd = new ProgressDialog(this);
         pd.setCanceledOnTouchOutside(false);
+
         editpassword = findViewById(R.id.changePasswordProfilePage);
-        firebaseAuth = FirebaseAuth.getInstance();
-        firebaseUser = firebaseAuth.getCurrentUser();
-        firebaseDatabase = FirebaseDatabase.getInstance();
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        firestore=FirebaseFirestore.getInstance();
 
-        storageReference = FirebaseStorage.getInstance().getReference();
-        databaseReference = firebaseDatabase.getReference("Users");
-        cameraPermission = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
-        storagePermission = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
-        Query query = databaseReference.orderByChild("email").equalTo(firebaseUser.getEmail());
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-
-                    String image = "" + dataSnapshot1.child("image").getValue();
-
-                    try {
-                        Glide.with(EditProfilePage.this).load(image).into(set);
-                    } catch (Exception e) {
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+        Intent callingIntent=getIntent();
+        set.setImageBitmap(ImageStringOperation.getImage(callingIntent.getStringExtra("Picture")));
+        isSeller=callingIntent.getBooleanExtra("isSeller",false);
 
         editpassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,9 +103,13 @@ public class EditProfilePage extends AppCompatActivity {
         profilepic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pd.setMessage("Updating Profile Picture");
-                profileOrCoverPhoto = "image";
-                showImagePicDialog();
+                if(checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE,CAMERA_PERMISSION_CODE)){
+                    getAndSetImageFromGallery();
+                    if(isSeller)
+                        pd.setMessage("Updating Brand Logo");
+                    else
+                        pd.setMessage("Updating Profile Picture");
+                }
             }
         });
 
@@ -138,52 +117,9 @@ public class EditProfilePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 pd.setMessage("Updating Name");
-                showNamephoneupdate("name");
+                updateNameWithDialog();
             }
         });
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        firestore.collection("Users").document(firebaseUser.getUid());
-        DocumentReference df=firestore.collection("Users").document(firebaseUser.getUid());
-        df.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
-
-                    @Override
-                    public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                        String img = value.getString("Profilepic");
-                        System.out.println(img);
-                        try {
-                            Glide.with(EditProfilePage.this).load(img).into(set);
-                        } catch (Exception e) {
-                            System.out.println(e);
-                        }
-                    }
-                });
-        /*
-        Query query = databaseReference.orderByChild("email").equalTo(firebaseUser.getEmail());
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-
-                    String image = "" + dataSnapshot1.child("image").getValue();
-
-                    try {
-                        Glide.with(EditProfilePage.this).load(image).into(set);
-                    } catch (Exception e) {
-                    }
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });*/
-
         editpassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -191,83 +127,6 @@ public class EditProfilePage extends AppCompatActivity {
                 showPasswordChangeDailog();
             }
         });
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        firestore.collection("Users").document(firebaseUser.getUid());
-        DocumentReference df=firestore.collection("Users").document(firebaseUser.getUid());
-        df.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
-
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-            String img=value.getString("Profilepic");
-            System.out.println(img);
-            try {
-                    Glide.with(EditProfilePage.this).load(img).into(set);
-                }
-            catch (Exception e)
-            {
-                System.out.println(e);
-            }
-            }
-
-        });
-
-       /* Query query = databaseReference.orderByChild("email").equalTo(firebaseUser.getEmail());
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-
-                    String image = "" + dataSnapshot1.child("image").getValue();
-
-                    try {
-                        Glide.with(EditProfilePage.this).load(image).into(set);
-                    } catch (Exception e) {
-                    }
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });*/
-        editpassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                pd.setMessage("Changing Password");
-                showPasswordChangeDailog();
-            }
-        });
-    }
-
-    // checking storage permission ,if given then we can add something in our storage
-    private Boolean checkStoragePermission() {
-        boolean result = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == (PackageManager.PERMISSION_GRANTED);
-        return result;
-    }
-
-    // requesting for storage permission
-    @RequiresApi(api = Build.VERSION_CODES.M)
-    private void requestStoragePermission() {
-        requestPermissions(storagePermission, STORAGE_REQUEST);
-    }
-
-    // checking camera permission ,if given then we can click image using our camera
-    private Boolean checkCameraPermission() {
-        boolean result = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == (PackageManager.PERMISSION_GRANTED);
-        boolean result1 = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == (PackageManager.PERMISSION_GRANTED);
-        return result && result1;
-    }
-
-    // requesting for camera permission if not given
-    @RequiresApi(api = Build.VERSION_CODES.M)
-    private void requestCameraPermission() {
-        requestPermissions(cameraPermission, CAMERA_REQUEST);
     }
 
     // We will show an alert box where we will write our old and new password
@@ -303,24 +162,23 @@ public class EditProfilePage extends AppCompatActivity {
     // correctly then we will update the new password
     private void updatePassword(String oldp, final String newp) {
         pd.show();
-        final FirebaseUser user = firebaseAuth.getCurrentUser();
-        AuthCredential authCredential = EmailAuthProvider.getCredential(user.getEmail(), oldp);
-        user.reauthenticate(authCredential)
+        AuthCredential authCredential = EmailAuthProvider.getCredential(currentUser.getEmail(), oldp);
+        currentUser.reauthenticate(authCredential)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        user.updatePassword(newp)
+                        currentUser.updatePassword(newp)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
                                         pd.dismiss();
-                                        Toast.makeText(EditProfilePage.this, "Changed Password", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(EditProfilePage.this, "Password Changed", Toast.LENGTH_LONG).show();
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 pd.dismiss();
-                                Toast.makeText(EditProfilePage.this, "Failed", Toast.LENGTH_LONG).show();
+                                Toast.makeText(EditProfilePage.this, "Password Change Failed", Toast.LENGTH_LONG).show();
                             }
                         });
                     }
@@ -328,221 +186,183 @@ public class EditProfilePage extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 pd.dismiss();
-                Toast.makeText(EditProfilePage.this, "Failed", Toast.LENGTH_LONG).show();
+                Toast.makeText(EditProfilePage.this, "Password Change Failed", Toast.LENGTH_LONG).show();
             }
         });
     }
 
     // Updating name
-    private void showNamephoneupdate(final String key) {
+    private void updateNameWithDialog() {
+        View view = LayoutInflater.from(this).inflate(R.layout.namechangedialog, null);
+        EditText firstName = (EditText) view.findViewById(R.id.firstNameInNameChangeDialog);
+        EditText lastName = (EditText) view.findViewById(R.id.lastNameInNameChangeDialog);
+        Button positive = (Button) view.findViewById(R.id.positiveButtonInNameChangeDialog);
+        Button negative = (Button) view.findViewById(R.id.negativeButtonInNameChangeDialog);
+        TextView headline = (TextView) view.findViewById(R.id.headlineInNameChangeDialog);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Update" + key);
-
-        // creating a layout to write the new name
-        LinearLayout layout = new LinearLayout(this);
-        layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(10, 10, 10, 10);
-        final EditText editText = new EditText(this);
-        editText.setHint("Enter" + key);
-        layout.addView(editText);
-        builder.setView(layout);
-
-        builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+        builder.setView(view);
+        AlertDialog dialog=builder.create();
+        dialog.setOnShowListener(new DialogInterface.OnShowListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
-                final String value = editText.getText().toString().trim();
-                if (!TextUtils.isEmpty(value)) {
-                    pd.show();
-
-                    // Here we are updating the new name
-                    HashMap<String, Object> result = new HashMap<>();
-                    result.put(key, value);
-                    databaseReference.child(firebaseUser.getUid()).updateChildren(result).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            pd.dismiss();
-
-                            // after updated we will show updated
-                            Toast.makeText(EditProfilePage.this, " updated ", Toast.LENGTH_LONG).show();
+            public void onShow(DialogInterface dialogInterface) {
+                if (isSeller) {
+                    headline.setText("Update Brand Name");
+                    firstName.setHint("Enter new Brand Name");
+                    lastName.setVisibility(View.GONE);
+                } else {
+                    headline.setText("Update Name");
+                    firstName.setHint("Enter new First Name");
+                    lastName.setHint("Enter new Last Name");
+                }
+                positive.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        final String fname = firstName.getText().toString().trim();
+                        final String lname = lastName.getText().toString().trim();
+                        boolean checksPassed = false;
+                        if (isSeller) {
+                            if (TextUtils.isEmpty(fname)) {
+                                Toast.makeText(EditProfilePage.this, "Brand Name Cannot be Empty", Toast.LENGTH_SHORT).show();
+                                return;
+                            } else
+                                checksPassed = true;
+                        } else {
+                            if (TextUtils.isEmpty(fname)) {
+                                Toast.makeText(EditProfilePage.this, "First Name cannot be Empty", Toast.LENGTH_SHORT).show();
+                                return;
+                            } else if (TextUtils.isEmpty(lname)) {
+                                Toast.makeText(EditProfilePage.this, "Last Name cannot be Empty", Toast.LENGTH_SHORT).show();
+                                return;
+                            } else {
+                                checksPassed = true;
+                            }
                         }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            pd.dismiss();
-                            Toast.makeText(EditProfilePage.this, "Unable to update", Toast.LENGTH_LONG).show();
-                        }
-                    });
-                    if (key.equals("name")) {
-                        final DatabaseReference databaser = FirebaseDatabase.getInstance().getReference("Posts");
-                        Query query = databaser.orderByChild("uid").equalTo(uid);
-                        query.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                                    String child = databaser.getKey();
-                                    dataSnapshot1.getRef().child("uname").setValue(value);
+                        if (checksPassed) {
+                            pd.show();
+
+                            // Here we are updating the new name
+                            HashMap<String, Object> result = new HashMap<>();
+                            if (isSeller)
+                                result.put("BrandName", fname);
+                            else {
+                                result.put("FirstName", fname);
+                                result.put("LastName", lname);
+                            }
+                            firestore.collection("Users").document(currentUser.getUid()).update(result).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        pd.dismiss();
+                                        Toast.makeText(EditProfilePage.this, "Name Changed", Toast.LENGTH_SHORT).show();
+                                        dialog.dismiss();
+                                    } else {
+                                        pd.dismiss();
+                                        Toast.makeText(EditProfilePage.this, "Name Change Error", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                            }
-                        });
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    pd.dismiss();
+                                    Toast.makeText(EditProfilePage.this, "Name Change Error", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
                     }
-                } else {
-                    Toast.makeText(EditProfilePage.this, "Unable to update", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
+                });
 
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                pd.dismiss();
+                negative.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
             }
         });
-        builder.create().show();
+        dialog.show();
     }
+    public boolean checkPermission(String permission, int requestCode)
+    {
+        // Checking if permission is not granted
+        if (ContextCompat.checkSelfPermission(getApplicationContext(), permission) == PackageManager.PERMISSION_DENIED) {
+            ActivityCompat.requestPermissions(this, new String[] { permission }, requestCode);
+        }
+        else {
+            return true;
+        }
+        return false;
+    }
+    private void getAndSetImageFromGallery(){
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("image/*");
+        launchSomeActivity.launch(intent);
+    }
+    ActivityResultLauncher<Intent> launchSomeActivity = registerForActivityResult( new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode()
+                        == Activity.RESULT_OK) {
+                    Intent data = result.getData();
 
-    // Here we are showing image pic dialog where we will select
-    // and image either from camera or gallery
-    private void showImagePicDialog() {
-        String options[] = {"Camera", "Gallery"};
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Pick Image From");
-        builder.setItems(options, new DialogInterface.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.M)
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // if access is not given then we will request for permission
-                if (which == 0) {
-                    if (!checkCameraPermission()) {
-                        requestCameraPermission();
-                    } else {
-                        pickFromCamera();
-                    }
-                } else if (which == 1) {
-                    if (!checkStoragePermission()) {
-                        requestStoragePermission();
-                    } else {
-                        pickFromGallery();
+                    if (data != null
+                            && data.getData() != null) {
+                        Uri selectedImageUri = data.getData();
+                        Bitmap selectedImageBitmap=null;
+                        try {
+                            selectedImageBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImageUri);
+                            set.setImageBitmap(selectedImageBitmap);
+                            profilePhotoString=ImageStringOperation.getString(selectedImageBitmap);
+
+                            Map<String, Object> map=new HashMap<>();
+                            if(isSeller){
+                                map.put("BrandLogo",profilePhotoString);
+                            }
+                            else{
+                                map.put("ProfilePic",profilePhotoString);
+                            }
+                            firestore.collection("Users").document(currentUser.getUid()).update(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if(task.isSuccessful()){
+                                        pd.dismiss();
+                                        if(isSeller)
+                                            Toast.makeText(EditProfilePage.this, "Brand Logo Updated Successfully", Toast.LENGTH_SHORT).show();
+                                        else
+                                            Toast.makeText(EditProfilePage.this, "Profile Picture Updated Successfully", Toast.LENGTH_SHORT).show();
+                                    }
+                                    else{
+                                        pd.dismiss();
+                                        Toast.makeText(EditProfilePage.this, "Changing Picture Failed", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(EditProfilePage.this, "Changing Picture Failed", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+                        catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
-            }
-        });
-        builder.create().show();
-    }
+            });
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == IMAGEPICK_GALLERY_REQUEST) {
-                imageuri = data.getData();
-                uploadProfileCoverPhoto(imageuri);
-            }
-            if (requestCode == IMAGE_PICKCAMERA_REQUEST) {
-                uploadProfileCoverPhoto(imageuri);
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode,
+                permissions,
+                grantResults);
+
+        if (requestCode == CAMERA_PERMISSION_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                getAndSetImageFromGallery();
+            } else {
+                Toast.makeText(this, "Error: You need to grant storage permission to upload Image", Toast.LENGTH_SHORT).show();
             }
         }
-        super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case CAMERA_REQUEST: {
-                if (grantResults.length > 0) {
-                    boolean camera_accepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
-                    boolean writeStorageaccepted = grantResults[1] == PackageManager.PERMISSION_GRANTED;
-                    if (camera_accepted && writeStorageaccepted) {
-                        pickFromCamera();
-                    } else {
-                        Toast.makeText(this, "Please Enable Camera and Storage Permissions", Toast.LENGTH_LONG).show();
-                    }
-                }
-            }
-            break;
-            case STORAGE_REQUEST: {
-                if (grantResults.length > 0) {
-                    boolean writeStorageaccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
-                    if (writeStorageaccepted) {
-                        pickFromGallery();
-                    } else {
-                        Toast.makeText(this, "Please Enable Storage Permissions", Toast.LENGTH_LONG).show();
-                    }
-                }
-            }
-            break;
-        }
-    }
-
-    // Here we will click a photo and then go to startactivityforresult for updating data
-    private void pickFromCamera() {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(MediaStore.Images.Media.TITLE, "Temp_pic");
-        contentValues.put(MediaStore.Images.Media.DESCRIPTION, "Temp Description");
-        imageuri = this.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
-        Intent camerIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        camerIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageuri);
-        startActivityForResult(camerIntent, IMAGE_PICKCAMERA_REQUEST);
-    }
-
-    // We will select an image from gallery
-    private void pickFromGallery() {
-        Intent galleryIntent = new Intent(Intent.ACTION_PICK);
-        galleryIntent.setType("image/*");
-        startActivityForResult(galleryIntent, IMAGEPICK_GALLERY_REQUEST);
-    }
-
-    // We will upload the image from here.
-    private void uploadProfileCoverPhoto(final Uri uri) {
-        pd.show();
-        Map<String,Object> userInfo=new HashMap<>();
-
-        // We are taking the filepath as storagepath + firebaseauth.getUid()+".png"
-        String filepathname = storagepath + "" + profileOrCoverPhoto + "_" + firebaseUser.getUid();
-
-
-       StorageReference storageReference1 = storageReference.child(filepathname);
-        storageReference1.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
-                while (!uriTask.isSuccessful()) ;
-
-                // We will get the url of our image using uritask
-                final Uri downloadUri = uriTask.getResult();
-                if (uriTask.isSuccessful()) {
-
-                   firestore=FirebaseFirestore.getInstance();
-        firestore.collection("Users").document(firebaseUser.getUid()).update("Profilepic",filepathname).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                pd.dismiss();
-                Toast.makeText(EditProfilePage.this,"Profile Pic Updated",Toast.LENGTH_SHORT);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                pd.dismiss();
-                Toast.makeText(EditProfilePage.this,"Failed To Update" +
-                        "",Toast.LENGTH_SHORT);
-
-            }
-        });
-                } else {
-                    pd.dismiss();
-                    Toast.makeText(EditProfilePage.this, "Error", Toast.LENGTH_LONG).show();
-                }
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                pd.dismiss();
-                Toast.makeText(EditProfilePage.this, "Error", Toast.LENGTH_LONG).show();
-            }
-        });
     }
 }

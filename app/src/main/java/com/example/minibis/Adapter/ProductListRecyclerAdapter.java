@@ -19,14 +19,17 @@ import com.example.minibis.ProductPage;
 import com.example.minibis.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ProductListRecyclerAdapter extends RecyclerView.Adapter<ProductListRecyclerAdapter.ProductListRecyclerViewHolder> {
     private ArrayList<Product> productList=new ArrayList<>();
     private Context mContext;
+    private boolean isSeller;
 
-    public ProductListRecyclerAdapter(ArrayList<Product> products, Context mContext) {
+    public ProductListRecyclerAdapter(ArrayList<Product> products, Context mContext,boolean isseller) {
         this.productList = products;
         this.mContext = mContext;
+        this.isSeller=isseller;
     }
 
     public class ProductListRecyclerViewHolder extends RecyclerView.ViewHolder {
@@ -34,12 +37,15 @@ public class ProductListRecyclerAdapter extends RecyclerView.Adapter<ProductList
         TextView name;
         TextView price;
         ConstraintLayout container;
+        TextView sales,category;
         ProductListRecyclerViewHolder(View itemView){
             super(itemView);
             img=(ImageView) itemView.findViewById(R.id.productImageInProductList);
             name=(TextView) itemView.findViewById(R.id.productNameInProductList);
             price=(TextView) itemView.findViewById(R.id.productPriceInProductList);
             container=(ConstraintLayout) itemView.findViewById(R.id.containerInProductList);
+            sales=(TextView) itemView.findViewById(R.id.totalSalesInProductList);
+            category=(TextView) itemView.findViewById(R.id.productCategoryInProductList);
         }
         public void setProductImage(String image) {
             Bitmap b= ImageStringOperation.getImage(image);
@@ -51,18 +57,34 @@ public class ProductListRecyclerAdapter extends RecyclerView.Adapter<ProductList
             name.setText(Name);
         }
         public void setProductPrice(String Price){
-            price.setText(Price+" Rs");
+            price.setText("Price: "+Price+" Rs");
         }
-        public void setOnClickListener(String docId){
-            container.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent okIntent=new Intent(mContext, ProductPage.class);
-                    okIntent.putExtra("productId",docId);
-                    okIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    mContext.startActivity(okIntent);
-                }
-            });
+        public void setProductCategory(String Category){
+            if(isSeller){
+                category.setText("Category: "+Category);
+            }
+            else
+                category.setVisibility(View.GONE);
+        }
+        public void setProductSales(String Sales){
+            if(isSeller){
+                sales.setText("Total sales: "+Sales);
+            }
+            else
+                sales.setVisibility(View.GONE);
+        }
+        public void setOnClickListener(Product product){
+            if(!isSeller) {
+                container.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent okIntent = new Intent(mContext, ProductPage.class);
+                        okIntent.putExtra("product", product);
+                        okIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        mContext.startActivity(okIntent);
+                    }
+                });
+            }
         }
     }
 
@@ -83,7 +105,8 @@ public class ProductListRecyclerAdapter extends RecyclerView.Adapter<ProductList
         holder.setProductImage(product.getProductImage());
         holder.setProductName(product.getProductName());
         holder.setProductPrice(product.getProductPrice());
-        holder.setOnClickListener(product.getDocumentId());
-
+        holder.setProductCategory(product.getProductCategory());
+        holder.setProductSales(product.getProductSellCount()+"");
+        holder.setOnClickListener(product);
     }
 }

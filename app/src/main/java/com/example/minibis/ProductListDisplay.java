@@ -38,6 +38,7 @@ public class ProductListDisplay extends AppCompatActivity {
     ArrayList<Product> productListArray;
     ProductListRecyclerAdapter productListAdapter;
     TextView noProductFound;
+    Boolean isSeller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +89,13 @@ public class ProductListDisplay extends AppCompatActivity {
                 break;
             case 7:
                 headline.setText("Product List");
-                query= currentUser.getUid();
+                String uid=callingIntent.getStringExtra("currentUserUid");
+                isSeller=callingIntent.getBooleanExtra("isSeller",false);
+                if(uid!=null){
+                    query=uid;
+                }
+                else
+                    query= currentUser.getUid();
                 break;
             default:
                 finish();
@@ -116,13 +123,13 @@ public class ProductListDisplay extends AppCompatActivity {
                         for(QueryDocumentSnapshot doc:allDocuments){
 //                            Log.d("Data:",doc.getData()+"");
                             Product p=doc.toObject(Product.class);
-                            p.setDocumentId(doc.getId());
+                            p.setProductId(doc.getId());
                             productListArray.add(p);
                         }
                         if(productListArray.isEmpty()){
                             noProductFound.setVisibility(View.VISIBLE);
                         }
-                        productListAdapter=new ProductListRecyclerAdapter(productListArray,getApplicationContext());
+                        productListAdapter=new ProductListRecyclerAdapter(productListArray,getApplicationContext(),isSeller);
                         recyclerView.setAdapter(productListAdapter);
                     }
                     else{
@@ -148,13 +155,13 @@ public class ProductListDisplay extends AppCompatActivity {
                         for(QueryDocumentSnapshot doc:allDocuments){
 //                            Log.d("Data:",doc.getData()+"");
                             Product p=doc.toObject(Product.class);
-                            p.setDocumentId(doc.getId());
+                            p.setProductId(doc.getId());
                             productListArray.add(p);
                         }
                         if(productListArray.isEmpty()){
                             noProductFound.setVisibility(View.VISIBLE);
                         }
-                        productListAdapter=new ProductListRecyclerAdapter(productListArray,getApplicationContext());
+                        productListAdapter=new ProductListRecyclerAdapter(productListArray,getApplicationContext(),false);
                         recyclerView.setAdapter(productListAdapter);
                     }
                     else{

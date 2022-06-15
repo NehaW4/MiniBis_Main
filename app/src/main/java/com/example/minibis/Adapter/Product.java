@@ -1,12 +1,14 @@
 package com.example.minibis.Adapter;
 
+import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Date;
 
-public class Product {
+public class Product implements Serializable {
     String ProductName,ProductPrice,ProductDescription,ProductCategory,ProductImage,ProductSeller,ProductSellerLogo,ProductSellerUid;
     Date ProductAddedDate;
     int ProductSellCount;
-    String DocumentId;
+    String ProductId;
 
     Product(){}
 
@@ -52,7 +54,10 @@ public class Product {
     }
 
     public void setProductCategory(String productCategory) {
-        ProductCategory = productCategory;
+
+        String[] Cat={"Western Clothing","Ethnic Clothing","Accessories","SkinCare","Footwear","Home-Decor"};
+        String[] DCat={"westernClothing","ethnicClothing","accessories","skinCare","footwear","homeDecor"};
+        ProductCategory = Cat[Arrays.asList(DCat).indexOf(productCategory)];
     }
 
     public String getProductImage() {
@@ -87,12 +92,12 @@ public class Product {
         ProductSellerUid = productSellerUid;
     }
 
-    public String getDocumentId() {
-        return DocumentId;
+    public String getProductId() {
+        return ProductId;
     }
 
-    public void setDocumentId(String documentId) {
-        DocumentId = documentId;
+    public void setProductId(String documentId) {
+        ProductId = documentId;
     }
 
     public Date getProductAddedDate() {

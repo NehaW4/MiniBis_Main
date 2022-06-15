@@ -23,20 +23,20 @@
     <ImageView
         android:id="@+id/setting_profile_image"
 
-        android:layout_width="130dp"
+        android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="50dp"
         android:layout_gravity="center"
+        android:layout_marginTop="50dp"
 
 
-        />
+        android:background="@drawable/layoutborderblack" />
 
     <TextView
         android:id="@+id/EditProfilePicProfilePage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_gravity="center"
+        android:layout_marginTop="30dp"
         android:text="Update Profile Pic"
         android:textAlignment="center"
         android:textColor="@android:color/black"

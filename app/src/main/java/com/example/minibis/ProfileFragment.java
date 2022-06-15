@@ -3,6 +3,7 @@ package com.example.minibis;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -32,7 +33,7 @@ public class ProfileFragment extends Fragment {
 
     Button log_profile,logout;
     LinearLayout editprofalay,cartlay,wishlitlay,orderlistlay,addproductlay,orderrequestlay,allproductlay;
-    TextView editprofile,wishlist,ordelist,cart,faq,aboutus,contactus,termsandcond,headline;
+    TextView faq,aboutus,contactus,termsandcond,headline;
     FirebaseFirestore firestore;
     Boolean isSeller;
     DocumentSnapshot currentUserDataDoc;
@@ -43,10 +44,6 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         log_profile = (Button) view.findViewById(R.id.login_btn);
-        editprofile=(TextView)view.findViewById(R.id.editprof);
-        wishlist=(TextView)view.findViewById(R.id.wishlist);
-        ordelist=(TextView)view.findViewById(R.id.orderlist);
-        cart=(TextView)view.findViewById(R.id.cart);
         faq =(TextView)view.findViewById(R.id.faqs);
         aboutus =(TextView)view.findViewById(R.id.aboutus);
         contactus=(TextView)view.findViewById(R.id.contactus);
@@ -88,16 +85,20 @@ public class ProfileFragment extends Fragment {
 
             }
         });
-        editprofile.setOnClickListener(new View.OnClickListener() {
+        editprofalay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent10 = new Intent(view.getContext(),EditProfilePage.class);
+                intent10.putExtra("isSeller",isSeller);
+                if(isSeller)
+                    intent10.putExtra("Picture",currentUserDataDoc.getString("BrandLogo"));
+                else
+                    intent10.putExtra("Picture",currentUserDataDoc.getString("ProfilePic"));
                 startActivity(intent10);
                 ((Activity)getActivity()).overridePendingTransition(0,0);
-
             }
         });
-        wishlist.setOnClickListener(new View.OnClickListener() {
+        wishlitlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent10 = new Intent(view.getContext(),EditProfilePage.class);
@@ -201,6 +202,9 @@ public class ProfileFragment extends Fragment {
             }
             else{
                 headline.setText("Welcome, "+currentUserDataDoc.getString("FirstName"));
+                Bitmap Logo=ImageStringOperation.getImage(currentUserDataDoc.getString("ProfilePic"));
+                if(Logo!=null)
+                    profileIcon.setImageBitmap(Logo);
                 cartlay.setVisibility(View.VISIBLE);
                 wishlitlay.setVisibility(View.VISIBLE);
             }
@@ -221,8 +225,16 @@ public class ProfileFragment extends Fragment {
             public void onClick(View view) {
                 Intent okIntent=new Intent(view.getContext(),ProductListDisplay.class);
                 okIntent.putExtra("category",7);
+                okIntent.putExtra("isSeller",true);
                 startActivity(okIntent);
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(FirebaseAuth.getInstance().getCurrentUser()!=null)
+            retriveData();
     }
 }

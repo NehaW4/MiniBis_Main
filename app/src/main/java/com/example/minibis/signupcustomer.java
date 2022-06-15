@@ -129,7 +129,7 @@ public class signupcustomer extends AppCompatActivity {
                                     userInfo.put("LastName",lastname);
                                     userInfo.put("MobileNumber",mobile);
                                     userInfo.put("Gender",gender);
-                                    userInfo.put("Profilepic",null);
+                                    userInfo.put("ProfilePic",null);
                                     firestore=FirebaseFirestore.getInstance();
                                     firestore.collection("Users").document(currentUser.getUid()).set(userInfo)
                                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
