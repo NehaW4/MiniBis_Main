@@ -116,6 +116,15 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        orderlistlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent okIntent=new Intent(view.getContext(),OrderList.class);
+                startActivity(okIntent);
+                ((Activity)getActivity()).overridePendingTransition(0,0);
+            }
+        });
+
         contactus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

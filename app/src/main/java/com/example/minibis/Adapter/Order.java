@@ -6,6 +6,16 @@ import java.util.Date;
 public class Order implements Serializable {
     String ProductId,SellerId,Status,TransactionNo,TransactionScreenshot,DeliveryAddress,ProductName,ProductPrice,ProductImage;
     Date OrderDate;
+    String CustomerId;
+
+    public String getCustomerId() {
+        return CustomerId;
+    }
+
+    public void setCustomerId(String customerId) {
+        CustomerId = customerId;
+    }
+
     public Order() {
     }
 
@@ -89,7 +99,7 @@ public class Order implements Serializable {
         OrderDate = orderDate;
     }
 
-    public Order(String productId, String sellerId, String status, String transactionNo, String transactionScreenshot, String deliveryAddress, String productName, String productPrice, String productImage, Date orderDate) {
+    public Order(String productId, String sellerId, String status, String transactionNo, String transactionScreenshot, String deliveryAddress, String productName, String productPrice, String productImage, Date orderDate, String customerId) {
         ProductId = productId;
         SellerId = sellerId;
         Status = status;
@@ -100,5 +110,6 @@ public class Order implements Serializable {
         ProductPrice = productPrice;
         ProductImage = productImage;
         OrderDate = orderDate;
+        CustomerId = customerId;
     }
 }

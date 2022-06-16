@@ -172,6 +172,7 @@ public class PaymentPage extends AppCompatActivity {
                     map.put("TransactionNo",transactionNo);
                     map.put("TransactionScreenshot",ImageStringOperation.getString(paymentSS));
                     map.put("DeliveryAddress",address);
+                    map.put("CustomerId",currentUser.getUid());
                     firestore.collection("Orders").document(transactionNo).set(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {

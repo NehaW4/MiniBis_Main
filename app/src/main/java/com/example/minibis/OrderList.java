@@ -5,14 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.minibis.Adapter.Order;
-import com.example.minibis.Adapter.OrderRequestRecyclerAdapter;
+import com.example.minibis.Adapter.OrderListRecyclerAdapter;
+import com.example.minibis.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -25,7 +24,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
-public class OrderRequests extends AppCompatActivity {
+public class OrderList extends AppCompatActivity {
 
     FirebaseUser currentUser;
     RecyclerView recycler;
@@ -34,21 +33,20 @@ public class OrderRequests extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_requests);
+        setContentView(R.layout.activity_order_list);
 
-        Intent callingIntent=getIntent();
         currentUser= FirebaseAuth.getInstance().getCurrentUser();
-        if(currentUser==null || !callingIntent.getBooleanExtra("isSeller",false)){
+        if(currentUser==null){
             finish();
             return;
         }
 
-        recycler=(RecyclerView) findViewById(R.id.orderRequestRecycler);
+        recycler=(RecyclerView) findViewById(R.id.orderListRecycler);
         recycler.setLayoutManager(new LinearLayoutManager(this));
-        empty=(TextView) findViewById(R.id.orderRequestEmpty);
+        empty=(TextView) findViewById(R.id.orderListEmpty);
 
         ArrayList<Order> orderList=new ArrayList<Order>();
-        FirebaseFirestore.getInstance().collection("Orders").whereEqualTo("SellerId",currentUser.getUid()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        FirebaseFirestore.getInstance().collection("Orders").whereEqualTo("CustomerId",currentUser.getUid()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(task.isSuccessful()){
@@ -59,14 +57,12 @@ public class OrderRequests extends AppCompatActivity {
                         empty.setVisibility(View.VISIBLE);
                     }
                     else{
-//                        Log.i("DATAAAAAAAA",orderList.get(0).getProductName());
-                        OrderRequestRecyclerAdapter adapter=new OrderRequestRecyclerAdapter(orderList,OrderRequests.this);
+                        OrderListRecyclerAdapter adapter=new OrderListRecyclerAdapter(orderList,OrderList.this);
                         recycler.setAdapter(adapter);
                     }
                 }
                 else{
                     empty.setVisibility(View.VISIBLE);
-
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -75,6 +71,5 @@ public class OrderRequests extends AppCompatActivity {
                 empty.setVisibility(View.VISIBLE);
             }
         });
-
     }
 }
