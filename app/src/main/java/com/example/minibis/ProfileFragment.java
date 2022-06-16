@@ -69,7 +69,6 @@ public class ProfileFragment extends Fragment {
             }
             log_profile.setVisibility(View.GONE);
             editprofalay.setVisibility(View.VISIBLE);
-            orderlistlay.setVisibility(View.VISIBLE);
             logout.setVisibility(View.VISIBLE);
         }
         else{
@@ -174,7 +173,15 @@ public class ProfileFragment extends Fragment {
                 });
             }
         });
-
+        orderrequestlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent okIntent = new Intent(view.getContext(),OrderRequests.class);
+                okIntent.putExtra("isSeller",isSeller);
+                startActivity(okIntent);
+                ((Activity)getActivity()).overridePendingTransition(0,0);
+            }
+        });
         return view;
     }
     public void retriveData(){
@@ -216,6 +223,7 @@ public class ProfileFragment extends Fragment {
                     profileIcon.setImageBitmap(Logo);
                 cartlay.setVisibility(View.VISIBLE);
                 wishlitlay.setVisibility(View.VISIBLE);
+                orderlistlay.setVisibility(View.VISIBLE);
             }
         }
         else{

@@ -44,7 +44,7 @@
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/drawable/layoutborderblack.xml" value="0.2265" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/drawable/layoutborderwhite.xml" value="0.2275" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_access_sub.xml" value="0.16757246376811594" />
-        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_add_product.xml" value="0.1" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_add_product.xml" value="0.2" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_all_categories.xml" value="0.16757246376811594" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_cloth_ethnic.xml" value="0.16757246376811594" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_cloth_subcateg.xml" value="0.16757246376811594" />
@@ -59,7 +59,8 @@
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_login_in_activity.xml" value="0.264" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_login_in_seller.xml" value="0.21666666666666667" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_main.xml" value="0.21666666666666667" />
-        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_payment_page.xml" value="0.13387978142076504" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_order_requests.xml" value="0.2" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_payment_page.xml" value="0.264" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_product_list_display.xml" value="0.264" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_product_page.xml" value="0.176" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_seller_all_products.xml" value="0.152" />
@@ -84,8 +85,11 @@
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/fragment_seller__add_product.xml" value="0.11577868852459017" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/fragment_seller__home.xml" value="0.264" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/fragment_seller__profile.xml" value="0.152" />
-        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/homepageproductrecycleritem.xml" value="0.13387978142076504" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/homepageproductrecycleritem.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/namechangedialog.xml" value="0.16" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/orderlistrecycleritem.xml" value="0.264" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/orderrequestrecycleritem.xml" value="0.2" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/paymentssdialog.xml" value="0.13387978142076504" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/productrecycleritem.xml" value="0.264" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/spinnerdialogitem.xml" value="0.264" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/wishlistrecyclerproductitem.xml" value="0.2" />

@@ -19,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MiniBis">
         <activity
+            android:name=".OrderRequests"
+            android:exported="false" />
+        <activity
             android:name=".CustomerWishlist"
             android:exported="false" />
         <activity

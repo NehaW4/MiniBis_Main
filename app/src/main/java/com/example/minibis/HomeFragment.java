@@ -1,5 +1,6 @@
 package com.example.minibis;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -48,10 +49,9 @@ public class HomeFragment extends Fragment {
     FirebaseUser currentUser;
     FirebaseFirestore firestore;
     ArrayList<Product> pproductArray,nproductArray;
+    Context mContext;
 
-    public HomeFragment(){
-
-    }
+    public HomeFragment(){}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,12 +68,13 @@ public class HomeFragment extends Fragment {
         pbButton=(Button) view.findViewById(R.id.popularBrandViewAllInHomepage);
         npButton=(Button) view.findViewById(R.id.newArrivalsViewAllInHomepage);
         slider=(ImageView) view.findViewById(R.id.viewpager1);
+        mContext=getActivity().getApplicationContext();
 
         pproductArray=new ArrayList<>();
         nproductArray=new ArrayList<>();
 
-        pproduct.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext(),LinearLayoutManager.HORIZONTAL,false));
-        nproduct.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext(),LinearLayoutManager.HORIZONTAL,false));
+        pproduct.setLayoutManager(new LinearLayoutManager(mContext,LinearLayoutManager.HORIZONTAL,false));
+        nproduct.setLayoutManager(new LinearLayoutManager(mContext,LinearLayoutManager.HORIZONTAL,false));
 
         firestore.collection("Products").orderBy("ProductSellCount", Query.Direction.DESCENDING).limit(10).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -85,17 +86,24 @@ public class HomeFragment extends Fragment {
                         p.setProductId(doc.getId());
                         nproductArray.add(p);
                     }
-                    HomepageProductListAdapter adapter=new HomepageProductListAdapter(pproductArray,getActivity().getApplicationContext());
-                    pproduct.setAdapter(adapter);
+                    try{
+                        HomepageProductListAdapter adapter=new HomepageProductListAdapter(pproductArray,mContext);
+                        pproduct.setAdapter(adapter);
+                    }catch(Exception e){
+                        try{
+                            HomepageProductListAdapter adapter=new HomepageProductListAdapter(pproductArray,mContext);
+                            pproduct.setAdapter(adapter);
+                        }catch (Exception ep){}
+                    }
                 }
                 else{
-                    Toast.makeText(getActivity().getApplicationContext(), "Product Fetch Failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "Product Fetch Failed", Toast.LENGTH_SHORT).show();
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getActivity().getApplicationContext(), "Product Fetch Failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "Product Fetch Failed", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -109,17 +117,17 @@ public class HomeFragment extends Fragment {
                         pa.setProductId(doc.getId());
                         pproductArray.add(pa);
                     }
-                    HomepageProductListAdapter adapter1=new HomepageProductListAdapter(nproductArray,getActivity().getApplicationContext());
+                    HomepageProductListAdapter adapter1=new HomepageProductListAdapter(nproductArray,mContext);
                     nproduct.setAdapter(adapter1);
                 }
                 else{
-                    Toast.makeText(getActivity().getApplicationContext(), "Product Fetch Failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "Product Fetch Failed", Toast.LENGTH_SHORT).show();
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getActivity().getApplicationContext(), "Product Fetch Failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "Product Fetch Failed", Toast.LENGTH_SHORT).show();
             }
         });
         slider.setOnClickListener(new View.OnClickListener() {
@@ -173,23 +181,23 @@ public class HomeFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.CartInHomepage:
                 if(currentUser==null) {
-                    Toast.makeText(getActivity().getApplicationContext(), "Please Login First to proceed", Toast.LENGTH_SHORT).show();
-                    Intent okIntent = new Intent(getActivity().getApplicationContext(), log_sign_options.class);
+                    Toast.makeText(mContext, "Please Login First to proceed", Toast.LENGTH_SHORT).show();
+                    Intent okIntent = new Intent(mContext, log_sign_options.class);
                     startActivity(okIntent);
                 }
                 else {
-                    Intent okIntent = new Intent(getActivity().getApplicationContext(), CustomerCart.class);
+                    Intent okIntent = new Intent(mContext, CustomerCart.class);
                     startActivity(okIntent);
                 }
                 return true;
             case R.id.wishlistInHomepage:
                 if(currentUser==null) {
-                    Toast.makeText(getActivity().getApplicationContext(), "Please Login First to proceed", Toast.LENGTH_SHORT).show();
-                    Intent okIntent = new Intent(getActivity().getApplicationContext(), log_sign_options.class);
+                    Toast.makeText(mContext, "Please Login First to proceed", Toast.LENGTH_SHORT).show();
+                    Intent okIntent = new Intent(mContext, log_sign_options.class);
                     startActivity(okIntent);
                 }
                 else {
-                    Intent okIntent = new Intent(getActivity().getApplicationContext(), CustomerWishlist.class);
+                    Intent okIntent = new Intent(mContext, CustomerWishlist.class);
                     startActivity(okIntent);
                 }
                 return true;
