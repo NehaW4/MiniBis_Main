@@ -18,6 +18,7 @@ import com.example.minibis.ImageStringOperation;
 import com.example.minibis.PaymentPage;
 import com.example.minibis.ProductPage;
 import com.example.minibis.R;
+import com.example.minibis.payment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -68,7 +69,7 @@ public class CartProductListRecyclerAdapter extends RecyclerView.Adapter<CartPro
             checkout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent okIntent = new Intent(mContext, PaymentPage.class);
+                    Intent okIntent = new Intent(mContext, payment.class);
                     okIntent.putExtra("product", product);
                     okIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     mContext.startActivity(okIntent);
