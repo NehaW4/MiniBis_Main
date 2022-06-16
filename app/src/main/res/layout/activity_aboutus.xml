@@ -11,7 +11,7 @@
         android:id="@+id/head"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/baloo"
         android:text="About Us "
         android:textSize="40dp"
@@ -21,14 +21,15 @@
 
     <ImageView
         android:id="@+id/intsavg"
-        android:layout_width="205dp"
-        android:layout_height="229dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
         android:src="@drawable/smallbiz"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/head" />
+        app:layout_constraintTop_toBottomOf="@+id/head"
+        app:srcCompat="@drawable/minibiziconround" />
 
     <TextView
         android:id="@+id/msg"
@@ -36,7 +37,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/baloo"
-        android:text="msg"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="During covid pandemic many homemaker and young people started their own small business for engaging in business world, money management.  From home baker to traditional food items, from clothing to footwear, from hair accessories to unique gifts were new business started.  MiniBis empowers businesses of all types and sizes to take their business online. MiniBis is a online platform for all small business to sell their product without charging to any company.  Business owner can add their products,sell it online and also can track all the task for managing the business."
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
