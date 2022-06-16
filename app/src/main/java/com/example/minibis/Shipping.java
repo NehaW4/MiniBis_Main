@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,7 +11,7 @@ import com.example.minibis.Adapter.Order;
 
 public class Shipping extends AppCompatActivity {
 
-    TextView name,status,desc;
+    TextView name,status,desc,price;
     ImageView image;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +22,7 @@ public class Shipping extends AppCompatActivity {
         status=(TextView) findViewById(R.id.shippingOrderStatus);
         desc=(TextView) findViewById(R.id.shippingOrderDesc);
         image=(ImageView) findViewById(R.id.shippingOrderImage);
+        price=(TextView) findViewById(R.id.shippinOrderPrice);
 
         Intent callingIntent=getIntent();
         Order order=(Order) callingIntent.getSerializableExtra("order");
@@ -30,6 +30,7 @@ public class Shipping extends AppCompatActivity {
         name.setText(order.getProductName());
         status.setText("Status: "+ s);
         image.setImageBitmap(ImageStringOperation.getImage(order.getProductImage()));
+        price.setText("Price: "+order.getProductPrice()+" Rs");
         if(s.equals("Pending")){
             desc.setText("The order is yet to be checked by the Seller. Once the payment is verified, the order will be delivered to your address in 2-3 working days.");
         }

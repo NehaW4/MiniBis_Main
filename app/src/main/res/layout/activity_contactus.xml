@@ -74,15 +74,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phone" />
+
     <TextView
         android:id="@+id/socialfb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="23dp"
-        android:layout_marginLeft="30dp"
-        android:textAlignment="center"
         android:text=" @minibis "
-        android:textSize="18dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/socaillinkhead" />
@@ -93,22 +94,21 @@
         android:layout_height="30dp"
         android:layout_gravity="center"
         android:layout_marginStart="141dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="0dp"
         android:src="@drawable/ic_facebookbrands"
+        app:layout_constraintBottom_toBottomOf="@+id/socialfb"
         app:layout_constraintEnd_toStartOf="@+id/socialfb"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/socaillinkhead" />
+        app:layout_constraintTop_toTopOf="@+id/socialfb" />
 
     <TextView
         android:id="@+id/socialinsta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
-        android:layout_marginLeft="30dp"
-        android:textAlignment="center"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
         android:text=" @minibis "
-        android:textSize="18dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/socialfb" />
@@ -119,22 +119,21 @@
         android:layout_height="30dp"
         android:layout_gravity="center"
         android:layout_marginStart="141dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="0dp"
         android:src="@drawable/ic_instagrambrands"
+        app:layout_constraintBottom_toBottomOf="@+id/socialinsta"
         app:layout_constraintEnd_toStartOf="@+id/socialfb"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fbsvg" />
+        app:layout_constraintTop_toTopOf="@+id/socialinsta" />
 
     <TextView
         android:id="@+id/socialyoutube"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginLeft="30dp"
-        android:textAlignment="center"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
         android:text=" @minibis "
-        android:textSize="18dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/socialinsta" />
@@ -145,19 +144,18 @@
         android:layout_height="30dp"
         android:layout_gravity="center"
         android:layout_marginStart="141dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="0dp"
         android:src="@drawable/ic_youtubebrands"
+        app:layout_constraintBottom_toBottomOf="@+id/socialyoutube"
         app:layout_constraintEnd_toStartOf="@+id/socialfb"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/intsavg" />
+        app:layout_constraintTop_toTopOf="@+id/socialyoutube" />
 
     <Button
         android:id="@+id/logoutbtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="74dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="33dp"
         android:layout_marginEnd="74dp"
         android:gravity="center"
         android:onClick="gotomain"
@@ -169,5 +167,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/youtubesvg" />
+        app:layout_constraintTop_toBottomOf="@+id/socialyoutube" />
 </androidx.constraintlayout.widget.ConstraintLayout>

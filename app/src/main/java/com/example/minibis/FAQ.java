@@ -15,7 +15,6 @@ public class FAQ extends AppCompatActivity {
     }
     public void gotomain(View view)
     {
-        startActivity(new Intent(getApplicationContext(),MainActivity.class));
         finish();
     }
 }

@@ -9,8 +9,10 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="50dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,6 +24,7 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
+            android:layout_weight="1"
             android:backgroundTint="#136dec"
             android:text="Customer" />
 
@@ -30,6 +33,7 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_weight="1"
             android:backgroundTint="#136dec"
             android:text="Seller" />
     </LinearLayout>
@@ -59,7 +63,7 @@
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="120dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:backgroundTint="#136dec"

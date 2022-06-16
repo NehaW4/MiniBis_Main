@@ -74,7 +74,7 @@
                     android:gravity="center"
                     android:padding="25dp"
                     android:text="Clothing"
-                    android:textSize="30sp"
+                    android:textSize="25sp"
                     app:layout_constraintEnd_toStartOf="@+id/imageView7"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -147,7 +147,7 @@
                     android:gravity="center"
                     android:padding="25dp"
                     android:text="Footwear"
-                    android:textSize="30sp"
+                    android:textSize="25sp"
                     app:layout_constraintEnd_toStartOf="@+id/imageView15"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -183,7 +183,7 @@
                     android:gravity="center"
                     android:padding="25dp"
                     android:text="Skincare"
-                    android:textSize="30sp"
+                    android:textSize="25sp"
                     app:layout_constraintEnd_toStartOf="@+id/imageView6"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -241,7 +241,7 @@
                     android:gravity="center"
                     android:padding="25dp"
                     android:text="Accessories"
-                    android:textSize="30sp"
+                    android:textSize="25sp"
                     app:layout_constraintEnd_toStartOf="@+id/imageView5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -290,7 +290,7 @@
                     android:gravity="center"
                     android:padding="25dp"
                     android:text="Home-Decor"
-                    android:textSize="30sp"
+                    android:textSize="25sp"
                     app:layout_constraintEnd_toStartOf="@+id/imageView16"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

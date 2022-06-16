@@ -27,6 +27,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ProductListDisplay extends AppCompatActivity {
 
@@ -87,7 +88,9 @@ public class ProductListDisplay extends AppCompatActivity {
                 break;
             case 6:
                 headline.setText("Search Result");
-                query = "search";
+                query = callingIntent.getStringExtra("searchQuery");
+                subHeadline.setText("Search Result for "+query);
+//                query = "search";
                 break;
             case 7:
                 headline.setText("Product List");
@@ -109,8 +112,6 @@ public class ProductListDisplay extends AppCompatActivity {
                 finish();
                 return;
         }
-        subHeadline.setVisibility(View.VISIBLE);
-//        subHeadline.setText(query);
         if(callingIntent.getStringExtra("subHeading")!=null){
             subHeadline.setText(callingIntent.getStringExtra("subHeading"));
             subHeadline.setVisibility(View.VISIBLE);
@@ -120,7 +121,37 @@ public class ProductListDisplay extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         if(num==6){
-            //search Query
+            firestore.collection("Products").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if(task.isSuccessful()){
+                        for(QueryDocumentSnapshot doc:task.getResult()){
+                            Product p=doc.toObject(Product.class);
+                            p.setProductId(doc.getId());
+                            if(p.getProductName().toLowerCase().contains(query.toLowerCase()))
+                            productListArray.add(p);
+                        }
+                        if(productListArray.isEmpty()){
+                            noProductFound.setVisibility(View.VISIBLE);
+                        }
+                        else{
+                            subHeadline.setVisibility(View.VISIBLE);
+                            productListAdapter=new ProductListRecyclerAdapter(productListArray,getApplicationContext(),false);
+                            recyclerView.setAdapter(productListAdapter);
+                        }
+                    }
+                    else{
+                        Toast.makeText(ProductListDisplay.this, "Data Error", Toast.LENGTH_SHORT).show();
+                        noProductFound.setVisibility(View.VISIBLE);
+                    }
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(ProductListDisplay.this, "Data Fetch Error", Toast.LENGTH_SHORT).show();
+                    noProductFound.setVisibility(View.VISIBLE);
+                }
+            });
         }
         else if(num==7){
             firestore.collection("Products").whereEqualTo("ProductSellerUid",query).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {

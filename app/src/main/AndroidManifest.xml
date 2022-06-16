@@ -58,9 +58,6 @@
             android:name=".ForgotPasswordActivity"
             android:exported="true" />
         <activity
-            android:name=".seller_navigation"
-            android:exported="false" />
-        <activity
             android:name=".log_sign_options"
             android:exported="false" />
         <activity

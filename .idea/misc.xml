@@ -43,29 +43,33 @@
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/drawable/layoutborder.xml" value="0.2265" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/drawable/layoutborderblack.xml" value="0.2265" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/drawable/layoutborderwhite.xml" value="0.2275" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_aboutus.xml" value="0.13387978142076504" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_access_sub.xml" value="0.16757246376811594" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_add_product.xml" value="0.2" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_all_categories.xml" value="0.16757246376811594" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_cloth_ethnic.xml" value="0.16757246376811594" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_cloth_subcateg.xml" value="0.16757246376811594" />
-        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_contactus.xml" value="0.16757246376811594" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_cloth_western.xml" value="0.13387978142076504" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_contactus.xml" value="0.264" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_customer_cart.xml" value="0.1368421052631579" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_customer_wishlist.xml" value="0.152" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_edit_profile_page.xml" value="0.264" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_faq.xml" value="0.13387978142076504" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_footwear_sub.xml" value="0.1" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_forgot_password.xml" value="0.16757246376811594" />
-        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_log_sign_options.xml" value="0.264" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_homedecor_sub.xml" value="0.13387978142076504" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_log_sign_options.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_login_in_acitvity.xml" value="0.16757246376811594" />
-        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_login_in_activity.xml" value="0.264" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_login_in_activity.xml" value="0.2" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_login_in_seller.xml" value="0.21666666666666667" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_main.xml" value="0.21666666666666667" />
-        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_order_list.xml" value="0.12532894736842104" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_order_list.xml" value="0.16" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_order_requests.xml" value="0.2" />
-        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_payment_page.xml" value="0.264" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_payment_page.xml" value="0.152" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_product_list_display.xml" value="0.264" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_product_page.xml" value="0.176" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_seller_all_products.xml" value="0.152" />
-        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_seller_navigation.xml" value="0.11577868852459017" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_seller_navigation.xml" value="0.2" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_shipping.xml" value="0.176" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_sign_in.xml" value="0.21666666666666667" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_sign_up.xml" value="0.21666666666666667" />
@@ -74,7 +78,10 @@
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_signin_sell2.xml" value="0.264" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_signupcustomer.xml" value="0.176" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_signupseller1.xml" value="0.15353260869565216" />
-        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_signupseller2.xml" value="0.264" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_signupseller2.xml" value="0.176" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_skincare_sub.xml" value="0.13387978142076504" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_splash_screen.xml" value="0.13387978142076504" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_termandpolicy.xml" value="0.13387978142076504" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_welcome.xml" value="0.1" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/cartrecyclerproductitem.xml" value="0.264" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/content_seller_all_products.xml" value="0.1014344262295082" />
@@ -87,14 +94,20 @@
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/fragment_seller__home.xml" value="0.264" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/fragment_seller__profile.xml" value="0.152" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/homepageproductrecycleritem.xml" value="0.16799999999999998" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/image_slider.xml" value="0.13387978142076504" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/namechangedialog.xml" value="0.16" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/orderlistrecycleritem.xml" value="0.264" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/orderrequestrecycleritem.xml" value="0.2" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/paymentssdialog.xml" value="0.13387978142076504" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/productrecycleritem.xml" value="0.264" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/searchdialog.xml" value="0.2" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/sidemenu_header.xml" value="0.13387978142076504" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/spinnerdialogitem.xml" value="0.264" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/wishlistrecyclerproductitem.xml" value="0.2" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/menu/bottomnavigation_menu.xml" value="0.1368421052631579" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/menu/bottomnavigation_seller.xml" value="0.1368421052631579" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/menu/homemenu.xml" value="0.21666666666666667" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/menu/seller_homemenu.xml" value="0.1368421052631579" />
       </map>
     </option>
   </component>
