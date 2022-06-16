@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
         checkPermission(Manifest.permission.CAMERA, 102);
         checkPermission(Manifest.permission.INTERNET, 103);
         checkPermission(Manifest.permission.ACCESS_NETWORK_STATE, 104);
+        
+        if(!CommonUtility.isInternetAvailable())
+            Toast.makeText(this, "Please check your internet connection", Toast.LENGTH_SHORT).show();
 
         navigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
         profileFragment = new ProfileFragment();

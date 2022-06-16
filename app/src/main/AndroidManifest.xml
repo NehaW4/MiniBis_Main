@@ -19,10 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MiniBis">
         <activity
-            android:name=".upipay"
-            android:exported="false" />
-        <activity
-            android:name=".cod"
+            android:name=".OrderRequests"
             android:exported="false" />
         <activity
             android:name=".CustomerWishlist"
@@ -32,9 +29,6 @@
             android:exported="false" />
         <activity
             android:name=".CustomerCart"
-            android:exported="false" />
-        <activity
-            android:name=".payment"
             android:exported="false" />
         <activity
             android:name=".Shipping"

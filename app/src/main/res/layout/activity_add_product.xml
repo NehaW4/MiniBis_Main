@@ -32,10 +32,11 @@
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
 
         android:layout_marginTop="8dp"
         android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
@@ -201,7 +202,7 @@
             <Button
                 android:id="@+id/addproductbtn"
                 android:layout_width="150dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="#136dec"
                 android:gravity="center"

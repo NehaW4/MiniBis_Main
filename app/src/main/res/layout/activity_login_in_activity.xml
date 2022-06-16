@@ -7,7 +7,6 @@
     android:background="@drawable/log_in_bg"
     tools:context=".Login_in_activity">
 
-
     <EditText
         android:id="@+id/login_id"
         android:layout_width="0dp"
@@ -15,7 +14,6 @@
         android:layout_marginStart="64dp"
         android:layout_marginEnd="64dp"
         android:layout_marginBottom="16dp"
-        android:ems="10"
         android:hint="@string/enterEmailId"
         android:inputType="text"
         android:singleLine="true"
@@ -30,13 +28,11 @@
         android:layout_marginStart="64dp"
         android:layout_marginEnd="64dp"
         android:layout_marginBottom="32dp"
-        android:ems="10"
         android:hint="Enter Password"
         android:inputType="textPassword"
         android:singleLine="true"
         app:layout_constraintBottom_toTopOf="@+id/loginButtonFromLoginPage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
