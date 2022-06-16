@@ -64,6 +64,7 @@
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_product_page.xml" value="0.176" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_seller_all_products.xml" value="0.152" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_seller_navigation.xml" value="0.11577868852459017" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_shipping.xml" value="0.2" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_sign_in.xml" value="0.21666666666666667" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_sign_up.xml" value="0.21666666666666667" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_signin_cust2.xml" value="0.4" />
@@ -78,11 +79,12 @@
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/custom_single_image.xml" value="0.1014344262295082" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/dialog_update_password.xml" value="0.1368421052631579" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/fragment_category.xml" value="0.2" />
-        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/fragment_seller__add_product.xml" value="0.11577868852459017" />
-        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/fragment_seller__home.xml" value="0.152" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/fragment_seller__home.xml" value="0.264" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/fragment_seller__profile.xml" value="0.152" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/homepageproductrecycleritem.xml" value="0.13387978142076504" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/namechangedialog.xml" value="0.16" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/productrecycleritem.xml" value="0.264" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/spinnerdialogitem.xml" value="0.264" />

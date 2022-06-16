@@ -139,7 +139,7 @@
                     android:src="@drawable/ic_baseline_shopping_cart_24" />
 
                 <TextView
-                    android:id="@+id/cart"
+                    android:id="@+id/CartInHomepage"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
@@ -174,7 +174,7 @@
                     android:src="@drawable/ic_wishlist" />
 
                 <TextView
-                    android:id="@+id/wishlist"
+                    android:id="@+id/wishlistInHomepage"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"

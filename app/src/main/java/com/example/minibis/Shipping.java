@@ -13,9 +13,4 @@ public class Shipping extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shipping);
     }
-    public void gotomship(View view)
-    {
-        startActivity(new Intent(getApplicationContext(),MainActivity.class));
-        finish();
-    }
 }

@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.minibis.Adapter.HomepageProductListAdapter;
 import com.example.minibis.Adapter.Product;
 import com.example.minibis.Adapter.ProductListRecyclerAdapter;
 import com.google.android.gms.common.internal.service.Common;
@@ -21,6 +22,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -97,6 +99,12 @@ public class ProductListDisplay extends AppCompatActivity {
                 else
                     query= currentUser.getUid();
                 break;
+            case 8:
+                headline.setText("Popular Products");
+                break;
+            case 9:
+                headline.setText("New Arrivals");
+                break;
             default:
                 finish();
                 return;
@@ -145,7 +153,66 @@ public class ProductListDisplay extends AppCompatActivity {
                 }
             });
         }
-
+        else if(num==8){
+            firestore.collection("Products").orderBy("ProductSellCount", Query.Direction.DESCENDING).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if(task.isSuccessful()){
+                        allDocuments=task.getResult();
+                        for(QueryDocumentSnapshot doc:allDocuments){
+                            Product p=doc.toObject(Product.class);
+                            p.setProductId(doc.getId());
+                            productListArray.add(p);
+                        }
+                        if(productListArray.isEmpty()){
+                            noProductFound.setVisibility(View.VISIBLE);
+                        }
+                        productListAdapter=new ProductListRecyclerAdapter(productListArray,getApplicationContext(),false);
+                        recyclerView.setAdapter(productListAdapter);
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(), "Data Error", Toast.LENGTH_SHORT).show();
+                        noProductFound.setVisibility(View.VISIBLE);
+                    }
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(getApplicationContext(), "Product Fetch Failed", Toast.LENGTH_SHORT).show();
+                    noProductFound.setVisibility(View.VISIBLE);
+                }
+            });
+        }
+        else if(num==9){
+            firestore.collection("Products").orderBy("ProductAddedDate", Query.Direction.ASCENDING).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if(task.isSuccessful()){
+                        allDocuments=task.getResult();
+                        for(QueryDocumentSnapshot doc:allDocuments){
+                            Product p=doc.toObject(Product.class);
+                            p.setProductId(doc.getId());
+                            productListArray.add(p);
+                        }
+                        if(productListArray.isEmpty()){
+                            noProductFound.setVisibility(View.VISIBLE);
+                        }
+                        productListAdapter=new ProductListRecyclerAdapter(productListArray,getApplicationContext(),false);
+                        recyclerView.setAdapter(productListAdapter);
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(), "Data Error", Toast.LENGTH_SHORT).show();
+                        noProductFound.setVisibility(View.VISIBLE);
+                    }
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(getApplicationContext(), "Product Fetch Failed", Toast.LENGTH_SHORT).show();
+                    noProductFound.setVisibility(View.VISIBLE);
+                }
+            });
+        }
         else{
             firestore.collection("Products").whereEqualTo("ProductCategory",query).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
