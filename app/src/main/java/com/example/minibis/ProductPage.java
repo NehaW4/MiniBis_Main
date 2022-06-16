@@ -90,7 +90,7 @@ public class ProductPage extends AppCompatActivity {
         checkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent okIntnet=new Intent(ProductPage.this,payment.class);
+                Intent okIntnet=new Intent(ProductPage.this,PaymentPage.class);
                 okIntnet.putExtra("product",product);
                 startActivity(okIntnet);
             }
