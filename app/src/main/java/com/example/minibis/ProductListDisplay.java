@@ -128,8 +128,8 @@ public class ProductListDisplay extends AppCompatActivity {
                         for(QueryDocumentSnapshot doc:task.getResult()){
                             Product p=doc.toObject(Product.class);
                             p.setProductId(doc.getId());
-                            if(p.getProductName().toLowerCase().contains(query.toLowerCase()))
-                            productListArray.add(p);
+                            if(p.getProductName().toLowerCase().contains(query.toLowerCase()) || p.getProductDescription().toLowerCase().contains(query.toLowerCase()))
+                                productListArray.add(p);
                         }
                         if(productListArray.isEmpty()){
                             noProductFound.setVisibility(View.VISIBLE);

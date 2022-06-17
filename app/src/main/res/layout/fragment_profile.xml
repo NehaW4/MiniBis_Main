@@ -44,7 +44,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/ConstraintLayout6"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
 
@@ -61,6 +61,7 @@
                     android:id="@+id/shapeableImageView1"
                     android:layout_width="0dp"
                     android:layout_height="200dp"
+                    android:background="@color/white"
                     android:scaleType="fitXY"
                     android:src="@drawable/bg"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -74,6 +75,7 @@
                     android:layout_width="125dp"
                     android:layout_height="125dp"
                     android:layout_marginTop="16dp"
+                    android:background="@color/white"
                     android:src="@drawable/profile"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -128,9 +130,9 @@
                 android:paddingTop="10dp"
                 android:paddingRight="25dp"
                 android:paddingBottom="10dp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:visibility="gone"
                 app:layout_constraintTop_toBottomOf="@+id/editnamelay">
 
                 <ImageView
@@ -231,8 +233,8 @@
                 android:textColor="#136dec"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:cornerRadius="10dp"
                 android:visibility="gone"
+                app:cornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout11" />
