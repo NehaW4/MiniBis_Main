@@ -133,10 +133,11 @@
                     android:layout_height="0dp"
                     android:layout_marginEnd="5dp"
                     android:background="@color/white"
-                    android:src="@drawable/footwear"
+                    android:src="@drawable/cat_footwear"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/cat_footwear" />
 
                 <TextView
                     android:id="@+id/textView25"
@@ -191,10 +192,10 @@
                     android:layout_height="0dp"
                     android:layout_marginEnd="5dp"
                     android:background="@color/white"
-                    android:src="@drawable/skincare1"
+                    android:src="@drawable/cat_skincare"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -224,11 +225,13 @@
                     android:id="@+id/imageView5"
                     android:layout_width="150dp"
                     android:layout_height="0dp"
+                    android:layout_marginEnd="5dp"
                     android:background="@color/white"
-                    android:src="@drawable/accessories1"
+                    android:src="@drawable/cat_accessories"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/cat_accessories" />
 
                 <TextView
                     android:id="@+id/textView15"
@@ -274,10 +277,11 @@
                     android:layout_height="0dp"
                     android:layout_marginEnd="5dp"
                     android:background="@color/white"
-                    android:src="@drawable/homedecor1"
+                    android:src="@drawable/cat_homedecor"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/cat_homedecor" />
 
                 <TextView
                     android:id="@+id/textView30"

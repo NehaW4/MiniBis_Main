@@ -61,7 +61,7 @@ public class ProductPage extends AppCompatActivity {
         pcat.setText(product.getProductCategory());
         pdesc.setText(product.getProductDescription());
         pprice.setText(product.getProductPrice()+" Rs");
-        pdate.setText(new SimpleDateFormat("dd/MM/yyyy").format(new Date(String.valueOf(product.getProductAddedDate()))));
+        pdate.setText(new SimpleDateFormat("dd/MM/yyyy").format(product.getProductAddedDate()));
         sname.setText(product.getProductSeller());
         plogo.setImageBitmap(ImageStringOperation.getImage(product.getProductImage()));
         slogo.setImageBitmap(ImageStringOperation.getImage(product.getProductSellerLogo()));

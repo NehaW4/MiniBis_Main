@@ -3,6 +3,7 @@ package com.example.minibis.Adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 
 public class HomepageProductListAdapter extends RecyclerView.Adapter<HomepageProductListAdapter.HomepageProductListViewHolder> {
     private ArrayList<Product> productList=new ArrayList<>();
-    private Context mContext;
+    private final Context mContext;
 
     public HomepageProductListAdapter(ArrayList<Product> products, Context mContext) {
         this.productList = products;
@@ -80,6 +81,7 @@ public class HomepageProductListAdapter extends RecyclerView.Adapter<HomepagePro
     @Override
     public void onBindViewHolder(@NonNull HomepageProductListViewHolder holder, int position) {
         final Product product= productList.get(position);
+        Log.i("AAAAAAA","Count: "+position);
         holder.setProductImage(product.getProductImage());
         holder.setProductName(product.getProductName());
         holder.setProductPrice(product.getProductPrice());

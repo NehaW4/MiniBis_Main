@@ -4,7 +4,6 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_access_sub.xml" value="0.25" />
-        <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_contactus.xml" value="0.2" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_login_in_acitvity.xml" value="0.1" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_login_in_seller.xml" value="0.1" />
         <entry key="..\:/CasCode/Projects/Shopping Android/MiniBis/MiniBis/app/src/main/res/layout/activity_main.xml" value="0.18" />
@@ -71,7 +70,7 @@
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_product_page.xml" value="0.176" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_seller_all_products.xml" value="0.152" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_seller_navigation.xml" value="0.2" />
-        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_shipping.xml" value="0.176" />
+        <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_shipping.xml" value="0.2" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_sign_in.xml" value="0.21666666666666667" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_sign_up.xml" value="0.21666666666666667" />
         <entry key="..\:/Users/lgaur/AndroidStudioProjects/MiniBis/app/src/main/res/layout/activity_signin_cust2.xml" value="0.4" />

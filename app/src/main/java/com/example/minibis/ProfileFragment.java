@@ -1,6 +1,7 @@
 package com.example.minibis;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -38,6 +39,7 @@ public class ProfileFragment extends Fragment {
     Boolean isSeller;
     DocumentSnapshot currentUserDataDoc;
     ShapeableImageView profileIcon;
+    Context mContext;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -58,6 +60,7 @@ public class ProfileFragment extends Fragment {
         addproductlay=(LinearLayout) view.findViewById(R.id.addProductLay);
         orderrequestlay=(LinearLayout) view.findViewById(R.id.viewOrderRequestLay);
         allproductlay=(LinearLayout) view.findViewById(R.id.allProductsLay);
+        mContext=view.getContext();
 
         if(FirebaseAuth.getInstance().getCurrentUser()!=null)
         {
@@ -78,7 +81,7 @@ public class ProfileFragment extends Fragment {
         log_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent10 = new Intent(view.getContext(),log_sign_options.class);
+                Intent intent10 = new Intent(mContext,log_sign_options.class);
                 startActivity(intent10);
                 ((Activity)getActivity()).overridePendingTransition(0,0);
 
@@ -87,7 +90,7 @@ public class ProfileFragment extends Fragment {
         editprofalay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent10 = new Intent(view.getContext(),EditProfilePage.class);
+                Intent intent10 = new Intent(mContext,EditProfilePage.class);
                 intent10.putExtra("isSeller",isSeller);
                 if(isSeller)
                     intent10.putExtra("Picture",currentUserDataDoc.getString("BrandLogo"));
@@ -100,7 +103,7 @@ public class ProfileFragment extends Fragment {
         wishlitlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent10 = new Intent(view.getContext(),CustomerWishlist.class);
+                Intent intent10 = new Intent(mContext,CustomerWishlist.class);
                 startActivity(intent10);
                 ((Activity)getActivity()).overridePendingTransition(0,0);
 
@@ -109,7 +112,7 @@ public class ProfileFragment extends Fragment {
         cartlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent okIntent=new Intent(view.getContext(),CustomerCart.class);
+                Intent okIntent=new Intent(mContext,CustomerCart.class);
                 startActivity(okIntent);
                 ((Activity)getActivity()).overridePendingTransition(0,0);
 
@@ -119,7 +122,7 @@ public class ProfileFragment extends Fragment {
         orderlistlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent okIntent=new Intent(view.getContext(),OrderList.class);
+                Intent okIntent=new Intent(mContext,OrderList.class);
                 startActivity(okIntent);
                 ((Activity)getActivity()).overridePendingTransition(0,0);
             }
@@ -128,7 +131,7 @@ public class ProfileFragment extends Fragment {
         contactus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent10 = new Intent(view.getContext(),contactus.class);
+                Intent intent10 = new Intent(mContext,contactus.class);
                 startActivity(intent10);
                 ((Activity)getActivity()).overridePendingTransition(0,0);
             }
@@ -136,7 +139,7 @@ public class ProfileFragment extends Fragment {
         aboutus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent10 = new Intent(view.getContext(),aboutus.class);
+                Intent intent10 = new Intent(mContext,aboutus.class);
                 startActivity(intent10);
                 ((Activity)getActivity()).overridePendingTransition(0,0);
 
@@ -145,7 +148,7 @@ public class ProfileFragment extends Fragment {
         termsandcond.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent10 = new Intent(view.getContext(),termandpolicy.class);
+                Intent intent10 = new Intent(mContext,termandpolicy.class);
                 startActivity(intent10);
                 ((Activity)getActivity()).overridePendingTransition(0,0);
 
@@ -154,7 +157,7 @@ public class ProfileFragment extends Fragment {
         faq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent10 = new Intent(view.getContext(),FAQ.class);
+                Intent intent10 = new Intent(mContext,FAQ.class);
                 startActivity(intent10);
                 ((Activity)getActivity()).overridePendingTransition(0,0);
 
@@ -185,7 +188,7 @@ public class ProfileFragment extends Fragment {
         orderrequestlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent okIntent = new Intent(view.getContext(),OrderRequests.class);
+                Intent okIntent = new Intent(mContext,OrderRequests.class);
                 okIntent.putExtra("isSeller",isSeller);
                 startActivity(okIntent);
                 ((Activity)getActivity()).overridePendingTransition(0,0);
@@ -241,7 +244,7 @@ public class ProfileFragment extends Fragment {
         addproductlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent okIntent=new Intent(view.getContext(),AddProduct.class);
+                Intent okIntent=new Intent(mContext,AddProduct.class);
                 startActivity(okIntent);
                 ((Activity)getActivity()).overridePendingTransition(0,0);
             }
@@ -249,7 +252,7 @@ public class ProfileFragment extends Fragment {
         allproductlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent okIntent=new Intent(view.getContext(),ProductListDisplay.class);
+                Intent okIntent=new Intent(mContext,ProductListDisplay.class);
                 okIntent.putExtra("category",7);
                 okIntent.putExtra("isSeller",true);
                 startActivity(okIntent);
