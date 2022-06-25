@@ -27,7 +27,8 @@ public class ImageStringOperation {
             return null;
         }
     }
-    public static Bitmap getCompressedBitmap(Bitmap bitmap,int MAX_SIZE){
+    public static Bitmap getCompressedBitmap(Bitmap bitmap){
+        int MAX_SIZE=1000*100;
         if(bitmap==null){
             return null;
         }

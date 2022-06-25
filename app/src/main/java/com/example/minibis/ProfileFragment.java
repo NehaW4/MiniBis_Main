@@ -240,6 +240,8 @@ public class ProfileFragment extends Fragment {
         }
         else{
             headline.setText("Welcome to MiniBis");
+            editprofalay.setVisibility(View.VISIBLE);
+            logout.setVisibility(View.VISIBLE);
         }
         addproductlay.setOnClickListener(new View.OnClickListener() {
             @Override

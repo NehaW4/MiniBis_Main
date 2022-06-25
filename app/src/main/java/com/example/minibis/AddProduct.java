@@ -227,7 +227,7 @@ public class AddProduct extends AppCompatActivity {
                         Bitmap selectedImageBitmap=null;
                         try {
                             selectedImageBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImageUri);
-                            selectedImageBitmap=ImageStringOperation.getCompressedBitmap(selectedImageBitmap,(800*600));
+                            selectedImageBitmap=ImageStringOperation.getCompressedBitmap(selectedImageBitmap);
                             productImageView.setImageBitmap(selectedImageBitmap);
                             productImageView.setBackgroundColor(Color.WHITE);
                             productImageString=ImageStringOperation.getString(selectedImageBitmap);

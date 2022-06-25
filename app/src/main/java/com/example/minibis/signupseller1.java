@@ -133,7 +133,7 @@ public class signupseller1 extends AppCompatActivity {
                         Bitmap selectedImageBitmap=null;
                         try {
                             selectedImageBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImageUri);
-                            selectedImageBitmap=ImageStringOperation.getCompressedBitmap(selectedImageBitmap,800*600);
+                            selectedImageBitmap=ImageStringOperation.getCompressedBitmap(selectedImageBitmap);
                             uploadedImage.setImageBitmap(selectedImageBitmap);
                             brandLogo=ImageStringOperation.getString(selectedImageBitmap);
                         }
