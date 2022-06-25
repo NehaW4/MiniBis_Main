@@ -185,7 +185,7 @@ public class ProductListDisplay extends AppCompatActivity {
             });
         }
         else if(num==8){
-            firestore.collection("Products").orderBy("ProductSellCount", Query.Direction.DESCENDING).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            firestore.collection("Products").orderBy("ProductSellCount", Query.Direction.DESCENDING).limit(10).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
                     if(task.isSuccessful()){
@@ -215,7 +215,7 @@ public class ProductListDisplay extends AppCompatActivity {
             });
         }
         else if(num==9){
-            firestore.collection("Products").orderBy("ProductAddedDate", Query.Direction.ASCENDING).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            firestore.collection("Products").orderBy("ProductAddedDate", Query.Direction.ASCENDING).limit(10).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
                     if(task.isSuccessful()){

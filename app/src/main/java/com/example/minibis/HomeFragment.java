@@ -61,6 +61,7 @@ public class HomeFragment extends Fragment {
         try {
             mContext = requireActivity().getApplicationContext();
         }catch(NullPointerException e){
+            Log.w("Error","Context Error",e);
             mContext=null;
         }
         if(mContext==null){
