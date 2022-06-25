@@ -26,6 +26,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -93,27 +94,21 @@ public class MainActivity extends AppCompatActivity {
             catagoryFragment = new CategoryFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.body_container, homeFragment).commit();
 
-            navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    Fragment fragment = null;
-                    switch (item.getItemId()) {
-                        case R.id.home:
-                            getSupportFragmentManager().beginTransaction().replace(R.id.body_container, homeFragment).commit();
-                            fragment = homeFragment;
-                            break;
+            navigationView.setOnItemSelectedListener(item -> {
+                switch (item.getItemId()) {
+                    case R.id.home:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.body_container, homeFragment).commit();
+                        break;
 
-                        case R.id.category:
-                            getSupportFragmentManager().beginTransaction().replace(R.id.body_container, catagoryFragment).commit();
-                            break;
+                    case R.id.category:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.body_container, catagoryFragment).commit();
+                        break;
 
-                        case R.id.profile:
-                            getSupportFragmentManager().beginTransaction().replace(R.id.body_container, profileFragment).commit();
-                            break;
-
-                    }
-                    return true;
+                    case R.id.profile:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.body_container, profileFragment).commit();
+                        break;
                 }
+                return true;
             });
         }
     }
