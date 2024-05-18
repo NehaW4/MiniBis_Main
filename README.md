@@ -19,6 +19,7 @@ MiniBiz is an Android app designed for online shopping. It's like having a virtu
    - There's a system in place to make sure that only the right people can access the app. This keeps everything safe and secure for both customers and sellers.
   
 **Some Output Screens**
+
 ![WhatsApp Image 2024-01-15 at 4 13 19 PM (2)](https://github.com/NehaW4/MiniBis_Main/assets/92804162/3ae87c74-bb48-41fc-a70f-2603ad343320)
 ![WhatsApp Image 2024-01-15 at 4 13 18 PM](https://github.com/NehaW4/MiniBis_Main/assets/92804162/bfff97c6-10c8-47bb-9872-95ab43534ea3)
 ![WhatsApp Image 2024-01-15 at 4 13 18 PM (1)](https://github.com/NehaW4/MiniBis_Main/assets/92804162/ce459b1f-5bb4-4c3f-a1e1-4bbdee3791cb)
