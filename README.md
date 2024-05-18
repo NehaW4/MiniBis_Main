@@ -1,3 +1,6 @@
+#Minibis App
+
+
 MiniBiz is an Android app designed for online shopping. It's like having a virtual store in your pocket. Here's how it works:
 
 1. **Empowering Customers**: This means that the app gives power to the people who want to buy things. Customers can do a lot of things with the app:
