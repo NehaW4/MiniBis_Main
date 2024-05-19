@@ -1,12 +1,12 @@
 **#Miibiz App**
 
 <img width="280" height="500" alt="WhatsApp Image 2024-01-15 at 4 13 19 PM (2)" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/3ae87c74-bb48-41fc-a70f-2603ad343320">
-<img width="197" height="197" alt="WhatsApp Image 2024-01-15 at 4 13 18 PM" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/bfff97c6-10c8-47bb-9872-95ab43534ea3">
-<img width="197" height="197" alt="WhatsApp Image 2024-01-15 at 4 13 18 PM (1)" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/ce459b1f-5bb4-4c3f-a1e1-4bbdee3791cb">
-<img width="197" height="197" alt="WhatsApp Image 2024-01-15 at 4 13 18 PM (2)" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/25123a18-fda6-418c-bc97-bf92ee76470e">
-<img width="197" height="197" alt="WhatsApp Image 2024-01-15 at 4 13 18 PM (3)" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/df4c1d76-856f-4656-8e43-cac729a86a46">
-<img width="197" height="197" alt="WhatsApp Image 2024-01-15 at 4 13 19 PM" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/0662f0d7-e2f3-442f-b138-0ec16dcb10c8">
-<img width="197" height="197" alt="WhatsApp Image 2024-01-15 at 4 13 19 PM (1)" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/4c76ef74-9061-4faa-b5f0-1212eae92cc7">
+<img width="280" height="500" alt="WhatsApp Image 2024-01-15 at 4 13 18 PM" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/bfff97c6-10c8-47bb-9872-95ab43534ea3">
+<img width="280" height="500" alt="WhatsApp Image 2024-01-15 at 4 13 18 PM (1)" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/ce459b1f-5bb4-4c3f-a1e1-4bbdee3791cb">
+<img width="280" height="500" alt="WhatsApp Image 2024-01-15 at 4 13 18 PM (2)" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/25123a18-fda6-418c-bc97-bf92ee76470e">
+<img width="280" height="500" alt="WhatsApp Image 2024-01-15 at 4 13 18 PM (3)" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/df4c1d76-856f-4656-8e43-cac729a86a46">
+<img width="280" height="500" alt="WhatsApp Image 2024-01-15 at 4 13 19 PM" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/0662f0d7-e2f3-442f-b138-0ec16dcb10c8">
+<img width="280" height="500" alt="WhatsApp Image 2024-01-15 at 4 13 19 PM (1)" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/4c76ef74-9061-4faa-b5f0-1212eae92cc7">
 
 
 MiniBiz is an Android app designed for online shopping. It's like having a virtual store in your pocket. Here's how it works:
