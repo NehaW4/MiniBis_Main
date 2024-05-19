@@ -1,5 +1,8 @@
 # Minibiz App Output
 
+<img width="280" height="500" alt="WhatsApp Image 2024-05-19 at 6 41 07 PM" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/9cc63a12-1133-461e-af77-3993dcebc69b">
+<img width="280" height="500" alt="WhatsApp Image 2024-05-19 at 6 41 07 PM (1)" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/898cd514-72f6-40e7-bbec-b71f3fa8afe2">
+
 <img width="280" height="500" alt="WhatsApp Image 2024-01-15 at 4 13 19 PM (2)" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/3ae87c74-bb48-41fc-a70f-2603ad343320">
 <img width="280" height="500" alt="WhatsApp Image 2024-01-15 at 4 13 18 PM" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/bfff97c6-10c8-47bb-9872-95ab43534ea3">
 <img width="280" height="500" alt="WhatsApp Image 2024-01-15 at 4 13 18 PM (1)" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/ce459b1f-5bb4-4c3f-a1e1-4bbdee3791cb">
