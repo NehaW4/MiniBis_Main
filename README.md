@@ -1,6 +1,6 @@
 **#Miibiz App**
 
-<img width="280" height="480" alt="WhatsApp Image 2024-01-15 at 4 13 19 PM (2)" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/3ae87c74-bb48-41fc-a70f-2603ad343320">
+<img width="280" height="500" alt="WhatsApp Image 2024-01-15 at 4 13 19 PM (2)" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/3ae87c74-bb48-41fc-a70f-2603ad343320">
 <img width="197" height="197" alt="WhatsApp Image 2024-01-15 at 4 13 18 PM" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/bfff97c6-10c8-47bb-9872-95ab43534ea3">
 <img width="197" height="197" alt="WhatsApp Image 2024-01-15 at 4 13 18 PM (1)" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/ce459b1f-5bb4-4c3f-a1e1-4bbdee3791cb">
 <img width="197" height="197" alt="WhatsApp Image 2024-01-15 at 4 13 18 PM (2)" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/25123a18-fda6-418c-bc97-bf92ee76470e">
