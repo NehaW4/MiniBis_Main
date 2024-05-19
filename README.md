@@ -1,4 +1,4 @@
-**#Miibiz App Output**
+#Miibiz App Output
 
 <img width="280" height="500" alt="WhatsApp Image 2024-01-15 at 4 13 19 PM (2)" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/3ae87c74-bb48-41fc-a70f-2603ad343320">
 <img width="280" height="500" alt="WhatsApp Image 2024-01-15 at 4 13 18 PM" src="https://github.com/NehaW4/MiniBis_Main/assets/92804162/bfff97c6-10c8-47bb-9872-95ab43534ea3">
